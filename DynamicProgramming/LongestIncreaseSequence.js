@@ -1,8 +1,9 @@
 function LongestIncreaseSequence(list) {
 
-    const cache = new Array(list.length).fill(1);
+    const len = list.length,
+        cache = new Array(len).fill(1);
 
-    for (let end = 1, len = list.length; end < len; end++) {
+    for (let end = 1; end < len; end++) {
 
         for (let start = 0; start < end; start++) {
             if (list[end] > list[start]) {
