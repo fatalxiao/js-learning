@@ -36,7 +36,7 @@ function PackageMaxValue(items, size) {
 
     }
 
-    return cache[size][len - 1];
+    return cache;
 
 }
 
