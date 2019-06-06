@@ -6,7 +6,7 @@
  */
 function minCountRecursion(moneySet, RestValue) {
 
-    // 小于0的时候不合法，返回负无穷
+    // 小于0的时候不合法，返回正无穷
     if (RestValue < 0) {
         return Number.POSITIVE_INFINITY;
     }
