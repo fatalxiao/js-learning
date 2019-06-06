@@ -1,28 +1,31 @@
-function minCountRecursion(set, value) {
+/**
+ * 用最少的钞票递归版
+ * @param moneySet
+ * @param RestValue
+ * @returns {number}
+ */
+function minCountRecursion(moneySet, RestValue) {
 
-    const cache = [];
+    // 小于0的时候不合法，返回负无穷
+    if (RestValue < 0) {
+        return Number.POSITIVE_INFINITY;
+    }
 
-    return (function loop(set, RestValue) {
+    // 等于0的时候返回0
+    if (RestValue === 0) {
+        return 0;
+    }
 
-        if (RestValue in cache) {
-            return cache[RestValue];
-        }
+    // 遍历所有币种，在当前剩余金额的情况下使用该币种可得到的最少张数
+    const result = Math.min(
+        ...moneySet.map(item =>
+            minCountRecursion(moneySet, RestValue - item)
+        )
+    ) + 1;
 
-        if (RestValue < 0) {
-            return Number.POSITIVE_INFINITY;
-        }
+    console.log(`min count of ${RestValue} = ${result}`);
 
-        if (RestValue === 0) {
-            return 0;
-        }
-
-        const result = Math.min(...set.map(item => loop(set, RestValue - item))) + 1;
-        cache[RestValue] = result;
-        console.log(`min count of ${RestValue} = ${result}`);
-
-        return result;
-
-    })(set, value);
+    return result;
 
 }
 
