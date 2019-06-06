@@ -13,13 +13,18 @@ function LISRecursion(list) {
         return 1;
     }
 
-    return Math.max(
+    const result = Math.max(
         // 掐头，并且若舍去的数小于剩余的第一个数，则需加一
         LISRecursion(list.slice(1)) + (list[1] > list[0] ? 1 : 0),
 
         // 去尾，并且若舍去的数大于剩余的最后一个数，则需加一
         LISRecursion(list.slice(0, len - 1)) + (list[len - 1] > list[len - 2] ? 1 : 0)
     );
+
+    // 可以当前子串所能得到的最小上升序列长度
+    console.log(`Longest Increase Sequence of [${list.join(', ')}] = ${result}`);
+
+    return result;
 
 }
 
