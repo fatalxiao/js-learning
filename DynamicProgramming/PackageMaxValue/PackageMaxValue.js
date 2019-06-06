@@ -22,13 +22,13 @@ function PackageMaxValue(items, size) {
             }
 
             // 背包的容量小于物品j的重量，那么就没有上述情况a了
-            if (i < items[j].wight) {
+            if (i < items[j].weight) {
                 cache[i][j] = cache[i][j - 1] || 0;
                 continue;
             }
 
             cache[i][j] = Math.max(
-                (cache[i - items[j].wight][j - 1] || 0) + items[j].value,
+                (cache[i - items[j].weight][j - 1] || 0) + items[j].value,
                 cache[i][j - 1] || 0
             );
 
@@ -41,9 +41,9 @@ function PackageMaxValue(items, size) {
 }
 
 console.log('Result: ', PackageMaxValue([
-    {wight: 4, value: 6},
-    {wight: 5, value: 4},
-    {wight: 6, value: 5},
-    {wight: 2, value: 3},
-    {wight: 2, value: 6}
+    {weight: 4, value: 6},
+    {weight: 5, value: 4},
+    {weight: 6, value: 5},
+    {weight: 2, value: 3},
+    {weight: 2, value: 6}
 ], 10));
