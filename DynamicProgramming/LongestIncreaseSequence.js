@@ -4,7 +4,7 @@
  * @returns {number}
  * @constructor
  */
-function LongestIncreaseSequence(list) {
+function LIS(list) {
 
     const len = list.length,
 
@@ -33,4 +33,4 @@ function LongestIncreaseSequence(list) {
 
 }
 
-console.log('Result: ', LongestIncreaseSequence([1, 5, 3, 4, 6, 9, 7, 8]));
+console.log('Result: ', LIS([1, 5, 3, 4, 6, 9, 7, 8]));
