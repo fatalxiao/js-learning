@@ -4,15 +4,16 @@
  * @param size
  * @returns {Array}
  */
-function packageMaxValue(items, size) {
+function PackageMaxValue(items, size) {
 
-    const cache = [];
+    const len = items.length,
+        cache = [];
 
     for (let i = 0; i <= size; i++) {
 
         cache[i] = [];
 
-        for (let j = 0; j < items.length; j++) {
+        for (let j = 0; j < len; j++) {
 
             // 背包的容量为0，那么一个东西也装不下，此时的值肯定也是为0
             if (i === 0) {
@@ -35,11 +36,11 @@ function packageMaxValue(items, size) {
 
     }
 
-    return cache;
+    return cache[size][len - 1];
 
 }
 
-console.log('Result: \n', packageMaxValue([
+console.log('Result: ', PackageMaxValue([
     {wight: 4, value: 6},
     {wight: 5, value: 4},
     {wight: 6, value: 5},
