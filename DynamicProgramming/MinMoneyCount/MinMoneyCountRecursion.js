@@ -19,9 +19,9 @@ function minCountRecursion(moneySet, RestValue) {
     // 遍历所有币种，在当前剩余金额的情况下使用该币种可得到的最少张数
     const result = Math.min(
         ...moneySet.map(item =>
-            minCountRecursion(moneySet, RestValue - item)
+            minCountRecursion(moneySet, RestValue - item) + 1
         )
-    ) + 1;
+    );
 
     console.log(`min count of ${RestValue} = ${result}`);
 
