@@ -32,16 +32,6 @@ function asyncComponent(getComponent) {
         };
 
         loadComponent = callback => {
-
-            // if (process.env.NODE_ENV === 'development') {
-            //     this.setState({
-            //         Component: getComponent()
-            //     }, () => {
-            //         callback && callback();
-            //     });
-            //     return;
-            // }
-
             getComponent().then(component => {
                 this.setState({
                     Component: component.default || component
@@ -49,7 +39,6 @@ function asyncComponent(getComponent) {
                     callback && callback();
                 });
             });
-
         };
 
         componentDidMount() {
