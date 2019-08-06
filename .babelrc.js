@@ -43,8 +43,8 @@ module.exports = {
         'development': {
             presets,
             plugins: [
-                ...commonPlugins,
-                'transform-import-sync'
+                ...commonPlugins
+                // 'transform-import-sync'
             ]
         },
 

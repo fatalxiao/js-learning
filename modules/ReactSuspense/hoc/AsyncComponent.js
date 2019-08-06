@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import * as types from 'reduxes/actionTypes';
+import Loading from 'alcedo-ui/CircularLoading';
 
-function asyncComponent(getComponent, store) {
+function asyncComponent(getComponent) {
 
     return class AsyncComponent extends Component {
 
@@ -11,17 +11,24 @@ function asyncComponent(getComponent, store) {
             super(props);
 
             this.state = {
-                Component: null
+                Component: null,
+                isLoading: false
             };
 
         }
 
         loadStartCallback = () => {
-            setTimeout(() => store.dispatch({type: types.LOAD_COMPONENT_START}), 0);
+            this.setState({
+                isLoading: true
+            });
         };
 
         loadCompleteCallback = () => {
-            setTimeout(() => store.dispatch({type: types.LOAD_COMPONENT_COMPLETE}), 0);
+            setTimeout(() => {
+                this.setState({
+                    isLoading: false
+                });
+            }, 4000);
         };
 
         loadComponent = callback => {
@@ -54,13 +61,15 @@ function asyncComponent(getComponent, store) {
 
         render() {
 
-            const {Component} = this.state;
+            const {Component, isLoading} = this.state;
 
-            if (Component) {
-                return <Component {...this.props}/>;
-            }
-
-            return null;
+            return isLoading ?
+                <Loading/>
+                :
+                Component ?
+                    <Component {...this.props}/>
+                    :
+                    null;
 
         }
 
