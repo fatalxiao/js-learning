@@ -15,11 +15,10 @@ import {DEFAULT_ROUTE} from 'src/config.routes';
 import 'assets/bootstrap/bootstrap-grid.min.css';
 import 'assets/font-awesome/css/fontawesome-all.min.css';
 import 'assets/icomoon/style.css';
-import 'scss/customized/index.scss';
 import 'scss/global.scss';
 import 'scss/containers/AppRoot.scss';
 
-class AppRoot extends Component {
+class Root extends Component {
 
     constructor(props) {
         super(props);
@@ -56,7 +55,7 @@ class AppRoot extends Component {
 
 }
 
-AppRoot.propTypes = {
+Root.propTypes = {
 
     toastes: PropTypes.array,
     notifiers: PropTypes.array,
@@ -72,4 +71,4 @@ export default connect(state => ({
 }), dispatch => bindActionCreators({
     clearToaste: actions.clearToaste,
     clearNotifier: actions.clearNotifier
-}, dispatch))(AppRoot);
+}, dispatch))(Root);

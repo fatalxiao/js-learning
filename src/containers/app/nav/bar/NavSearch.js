@@ -20,33 +20,11 @@ class NavSearch extends Component {
             filterValue: ''
         };
 
-        this.filter = ::this.filter;
-        this.filterChangeHandler = ::this.filterChangeHandler;
-
     }
 
-    filter(filterValue, props = this.props) {
-
-        const {patientList} = props;
-
-        if (!filterValue) {
-            return patientList;
-        }
-
-        return patientList ?
-            patientList.filter(item =>
-                (item.id && item.id.includes(filterValue)) || (item.name && item.name.includes(filterValue))
-            )
-            :
-            [];
-
-    }
-
-    filterChangeHandler(filterValue) {
-        this.setState({
-            filterValue
-        });
-    }
+    filter = data => {
+        return data;
+    };
 
     render() {
 
@@ -69,8 +47,7 @@ class NavSearch extends Component {
                     <div className="nav-search-content">
                         <TextField className="nav-search-field"
                                    value={filterValue}
-                                   placeholder="Search"
-                                   onChange={this.filterChangeHandler}/>
+                                   placeholder="Search"/>
                         {
                             data && data.length > 0 ?
                                 <NavPatientList data={this.filter(filterValue)}/>
@@ -89,13 +66,10 @@ class NavSearch extends Component {
 
 NavSearch.propTypes = {
 
-    patientList: PropTypes.array,
     visible: PropTypes.bool,
 
     onRequestClose: PropTypes.func
 
 };
 
-export default connect(state => ({
-    patientList: state.patients.list
-}), dispatch => bindActionCreators({}, dispatch))(NavSearch);
+export default connect(state => ({}), dispatch => bindActionCreators({}, dispatch))(NavSearch);

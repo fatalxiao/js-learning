@@ -1,25 +1,18 @@
 import RequestManagement from './RequestManagement';
 
-function ajax(method, {
-    name, url, params, formData, cancelable, header, contentType, isUpload,
-    successCallback, failureCallback, errorCallback
-}) {
+function ajax(method, request) {
 
-    const xhr = new XMLHttpRequest();
+    const {
+            name, url, params, formData, file, cancelable, header, contentType, isUploadForm, isUploadFile,
+            successCallback, failureCallback
+        } = request,
+        xhr = new XMLHttpRequest();
 
     xhr.open(method, url, true);
 
-    let body;
-    if (params) {
-
-        if (isUpload) {
-            body = new FormData(formData);
-        } else {
-            xhr.setRequestHeader('Content-type', contentType || 'application/json');
-            body = JSON.stringify(params);
-        }
-
-    }
+    // xhr.setRequestHeader('Cache-Control', 'no-cache, must-revalidate');
+    // xhr.setRequestHeader('expires', 'Thu, 01 Jan 1970 00:00:01 GMT');
+    // xhr.setRequestHeader('If-Modified-Since', '0');
 
     if (header) {
         for (let key in header) {
@@ -41,14 +34,23 @@ function ajax(method, {
             try {
                 response = JSON.parse(response);
             } catch (e) {
-                failureCallback && failureCallback(xhr);
+                failureCallback && failureCallback(xhr, undefined, undefined, {
+                    ...request,
+                    method
+                });
                 return;
             }
 
             if (parseInt(+response.code / 1000) === 2) {
-                successCallback && successCallback(xhr, response, response.data);
+                successCallback && successCallback(xhr, response, response.data, {
+                    ...request,
+                    method
+                });
             } else {
-                failureCallback && failureCallback(xhr, response, response.data);
+                failureCallback && failureCallback(xhr, response, response.data, {
+                    ...request,
+                    method
+                });
             }
 
         }
@@ -62,6 +64,57 @@ function ajax(method, {
             url,
             xhr
         });
+    }
+
+    let body;
+
+    if (isUploadFile) {
+
+        // xhr.setRequestHeader('Content-Type', 'application/octet-stream');
+        // const reader = new FileReader();
+
+        // readAsArrayBuffer
+        // reader.readAsArrayBuffer(file);
+        // reader.onload = function (e) {
+        //
+        //     const dataView = new DataView(e.target.result),
+        //         size = dataView.byteLength,
+        //         uint8Array = new Uint8Array(size);
+        //     for (let i = 0; i < size; i++) {
+        //         uint8Array[i] = dataView.getUint8(i);
+        //     }
+        //
+        //     xhr.send(uint8Array.buffer);
+        //
+        // };
+
+        // readAsBinaryString
+        // reader.readAsBinaryString(file);
+        // reader.onload = function (e) {
+        //     xhr.send(e.target.result);
+        // };
+
+        // readAsText
+        // reader.readAsText(file);
+        // reader.onload = function (e) {
+        //     xhr.send(new Blob([e.target.result], {type: 'text/plain'}));
+        // };
+
+        xhr.send(file);
+
+        return;
+
+    }
+
+    if (isUploadForm) {
+        body = Object.prototype.toString.call(formData) === '[object FormData]' ? formData : new FormData(formData);
+    } else if (params) {
+        xhr.setRequestHeader('Content-Type', contentType || 'application/json');
+        try {
+            body = JSON.stringify(params);
+        } catch (e) {
+            failureCallback && failureCallback(xhr);
+        }
     }
 
     xhr.send(body);
@@ -87,7 +140,21 @@ function del(options) {
 function postForm(options) {
     ajax('POST', {
         ...options,
-        isUpload: true
+        isUploadForm: true
+    });
+}
+
+function putForm(options) {
+    ajax('PUT', {
+        ...options,
+        isUploadForm: true
+    });
+}
+
+function putFile(options) {
+    ajax('PUT', {
+        ...options,
+        isUploadFile: true
     });
 }
 
@@ -96,5 +163,7 @@ export default {
     post,
     put,
     del,
-    postForm
+    postForm,
+    putForm,
+    putFile
 };

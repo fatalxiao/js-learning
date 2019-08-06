@@ -13,46 +13,30 @@ import 'scss/containers/app/nav/patients/NavPatientListWrapper.scss';
 class NavPatientListWrapper extends Component {
 
     constructor(props) {
-
         super(props);
-
-        this.goToList = ::this.goToList;
-
-    }
-
-    goToList() {
-        this.props.routerPush('/app/patient-list');
     }
 
     render() {
-
-        const {patientList} = this.props;
-
         return (
             <div className="nav-patient-list-wrapper">
 
                 <FlatButton className="all-patients-button"
                             value="All Patients"
-                            iconCls="icon-list"
-                            onClick={this.goToList}>
-                    <span className="patients-count">{`[${patientList.length}]`}</span>
+                            iconCls="icon-list">
+                    <span className="patients-count">[0]</span>
                 </FlatButton>
 
                 <PatientList/>
 
             </div>
         );
-
     }
 }
 
 NavPatientListWrapper.propTypes = {
-    patientList: PropTypes.array,
     routerPush: PropTypes.func
 };
 
-export default connect(state => ({
-    patientList: state.patients.list
-}), dispatch => bindActionCreators({
+export default connect(state => ({}), dispatch => bindActionCreators({
     routerPush: actions.routerPush
 }, dispatch))(NavPatientListWrapper);

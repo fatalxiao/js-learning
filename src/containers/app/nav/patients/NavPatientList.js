@@ -19,8 +19,7 @@ class NavPatientList extends Component {
 
     render() {
 
-        const {groupList, patientList, data, routerPush} = this.props,
-            listData = data || patientList;
+        const {data, routerPush} = this.props;
 
         return (
             <div className="nav-patient-list"
@@ -29,30 +28,23 @@ class NavPatientList extends Component {
                  }}>
 
                 {
-                    listData && listData.map((patient, index) => {
+                    data && data.map((patient, index) =>
+                        <FlatButton key={index}
+                                    className="patient"
+                                    onClick={() => {
+                                        routerPush(`/app/patient/info/${patientId}`);
+                                    }}>
 
-                        const patientId = patient.id,
-                            groupName = groupList.find(item => item.id === patient.groupId).name;
+                            {/*<div className="patient-info">*/}
+                            {/*    <span className="patient-name">{patient.name}</span>*/}
+                            {/*</div>*/}
 
-                        return (
-                            <FlatButton key={index}
-                                        className="patient"
-                                        onClick={() => {
-                                            routerPush(`/app/patient/info/${patientId}`);
-                                        }}>
+                            {/*<div className="patient-desc">*/}
+                            {/*    {`${patientId}  ·  ${groupName}`}*/}
+                            {/*</div>*/}
 
-                                <div className="patient-info">
-                                    <span className="patient-name">{patient.name}</span>
-                                </div>
-
-                                <div className="patient-desc">
-                                    {`${patientId}  ·  ${groupName}`}
-                                </div>
-
-                            </FlatButton>
-                        );
-
-                    })
+                        </FlatButton>
+                    )
                 }
 
             </div>
@@ -63,17 +55,12 @@ class NavPatientList extends Component {
 
 NavPatientList.propTypes = {
 
-    groupList: PropTypes.array,
-    patientList: PropTypes.array,
     data: PropTypes.array,
 
     routerPush: PropTypes.func
 
 };
 
-export default connect(state => ({
-    groupList: state.group.list,
-    patientList: state.patients.list
-}), dispatch => bindActionCreators({
+export default connect(state => ({}), dispatch => bindActionCreators({
     routerPush: actions.routerPush
 }, dispatch))(NavPatientList);

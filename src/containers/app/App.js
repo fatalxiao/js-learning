@@ -21,15 +21,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-
         Dom.removeClass(document.querySelector('html'), 'full-size');
-
-        const {getGroups, getSensoryBlocks, getPatients} = this.props;
-
-        getGroups();
-        getSensoryBlocks();
-        getPatients();
-
     }
 
     render() {
@@ -60,19 +52,9 @@ class App extends Component {
 }
 
 App.propTypes = {
-
-    componentLoading: PropTypes.bool,
-
-    getGroups: PropTypes.func,
-    getSensoryBlocks: PropTypes.func,
-    getPatients: PropTypes.func
-
+    componentLoading: PropTypes.bool
 };
 
 export default connect(state => ({
     componentLoading: state.loadComponent.loading
-}), dispatch => bindActionCreators({
-    getGroups: actions.getGroups,
-    getSensoryBlocks: actions.getSensoryBlocks,
-    getPatients: actions.getPatients
-}, dispatch))(App);
+}), dispatch => bindActionCreators({}, dispatch))(App);

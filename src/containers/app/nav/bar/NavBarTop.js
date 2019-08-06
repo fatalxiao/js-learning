@@ -7,11 +7,8 @@ import classNames from 'classnames';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
-import DownloadField from 'alcedo-ui/DownloadField';
-import AddPatientDialog from 'containers/app/modules/editPatient/patientBaseInfo/AddPatientDialog';
 import NavSearch from './NavSearch';
 
-import config from 'src/config';
 import {DEFAULT_ROUTE} from 'src/config.routes';
 
 import 'scss/containers/app/nav/bar/NavBarTop.scss';
@@ -56,8 +53,6 @@ class NavBarTop extends Component {
     showAddPatient() {
         this.setState({
             addPatientDialogVisible: true
-        }, () => {
-            this.props.resetPatientBaseInfo();
         });
     }
 
@@ -119,13 +114,6 @@ class NavBarTop extends Component {
                 <NavSearch visible={searchDrawerVisible}
                            onRequestClose={this.hideSearch}/>
 
-                <AddPatientDialog visible={addPatientDialogVisible}
-                                  onRequestClose={this.hideAddPatient}/>
-
-                <DownloadField ref="downloadField"
-                               url={`${config.appBaseUrl}/patient/exportPatients`}
-                               onLoad={this.exportLoadedHandler}/>
-
                 {children}
 
             </div>
@@ -138,12 +126,10 @@ NavBarTop.propTypes = {
 
     isFold: PropTypes.bool,
 
-    routerPush: PropTypes.func,
-    resetPatientBaseInfo: PropTypes.func
+    routerPush: PropTypes.func
 
 };
 
 export default connect(state => ({}), dispatch => bindActionCreators({
-    routerPush: actions.routerPush,
-    resetPatientBaseInfo: actions.resetPatientBaseInfo
+    routerPush: actions.routerPush
 }, dispatch))(NavBarTop);
