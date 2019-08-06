@@ -1,12 +1,12 @@
 @import '../../../../common.scss';
 
-.nav-patient-popover-wrapper {
+.nav-menu-modules-pop-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: $theme-secondary;
 
-    .icon-button.nav-patient-popover-item {
+    .icon-button.nav-menu-modules-pop-trigger {
         border-radius: $theme-border-radius;
         width: 48px;
         height: 48px;
@@ -20,7 +20,7 @@
 
 }
 
-.nav-patient-popover {
+.nav-menu-modules-pop {
 
     .popover-content {
         max-height: 480px;

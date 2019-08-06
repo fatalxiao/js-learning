@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 
 import NavBar from './bar/NavBar';
-import NavPatient from './patients/NavPatients';
+import NavPatient from './menu/NavMenu';
 
 import Event from 'vendors/Event';
 import Valid from 'vendors/Valid';

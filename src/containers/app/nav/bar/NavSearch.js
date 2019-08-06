@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import Paper from 'alcedo-ui/Paper';
 import TextField from 'alcedo-ui/TextField';
-import NavPatientList from 'containers/app/nav/patients/NavPatientList';
+import NavPatientList from 'containers/app/nav/menu/NavMenuModules';
 
 import 'scss/containers/app/nav/bar/NavSearch.scss';
 

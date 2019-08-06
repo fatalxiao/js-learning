@@ -8,11 +8,11 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 import Popover from 'alcedo-ui/Popover';
-import PatientList from './NavPatientList';
+import PatientList from './NavMenuModules';
 
-import 'scss/containers/app/nav/patients/NavPatientPopover.scss';
+import 'scss/containers/app/nav/menu/NavMenuModulesPop.scss';
 
-class NavPatientsPopover extends Component {
+class NavMenuModulesPop extends Component {
 
     constructor(props) {
 
@@ -22,20 +22,13 @@ class NavPatientsPopover extends Component {
             popVisible: false
         };
 
-        this.allPatientMouseHandler = ::this.allPatientMouseHandler;
-        this.goToList = ::this.goToList;
-
     }
 
-    allPatientMouseHandler(popVisible) {
+    allPatientMouseHandler = popVisible => {
         this.setState({
             popVisible
         });
-    }
-
-    goToList() {
-        this.props.routerPush('/app/patient-list');
-    }
+    };
 
     componentDidMount() {
         this.allPatientButtonEl = findDOMNode(this.refs.allPatientButton);
@@ -47,25 +40,19 @@ class NavPatientsPopover extends Component {
             {popVisible} = this.state;
 
         return (
-            <div className="nav-patient-popover-wrapper">
+            <div className="nav-menu-modules-pop-wrapper">
 
                 <IconButton ref="allPatientButton"
-                            className="nav-patient-popover-item"
+                            className="nav-menu-modules-pop-trigger"
                             iconCls="icon-list"
-                            onMouseOver={() => {
-                                this.allPatientMouseHandler(true);
-                            }}
-                            onClick={this.goToList}/>
+                            onMouseOver={() => this.allPatientMouseHandler(true)}/>
 
-                <Popover className="nav-patient-popover"
+                <Popover className="nav-menu-modules-pop"
                          visible={isFold && popVisible}
                          triggerEl={this.allPatientButtonEl}
                          position={Popover.Position.RIGHT_TOP}
                          hasTriangle={false}
-                         isTriggerPositionFixed={true}
-                         onRequestClose={() => {
-                             this.allPatientMouseHandler(false);
-                         }}>
+                         onRequestClose={() => this.allPatientMouseHandler(false)}>
                     <PatientList/>
                 </Popover>
 
@@ -74,11 +61,11 @@ class NavPatientsPopover extends Component {
     }
 }
 
-NavPatientsPopover.propTypes = {
+NavMenuModulesPop.propTypes = {
     isFold: PropTypes.bool,
     routerPush: PropTypes.func
 };
 
 export default connect(state => ({}), dispatch => bindActionCreators({
     routerPush: actions.routerPush
-}, dispatch))(NavPatientsPopover);
+}, dispatch))(NavMenuModulesPop);

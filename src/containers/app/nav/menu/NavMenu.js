@@ -4,12 +4,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 
-import NavPatientCollapsed from './NavPatientsPopover';
-import PatientListWrapper from './NavPatientListWrapper';
+import NavPatientCollapsed from './NavMenuModulesPop';
+import PatientListWrapper from './NavMenuModulesList';
 
-import 'scss/containers/app/nav/patients/NavPatient.scss';
+import 'scss/containers/app/nav/menu/NavMenu.scss';
 
-class NavPatients extends Component {
+class NavMenu extends Component {
 
     constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ class NavPatients extends Component {
         const {isCollapsed, isFold} = this.props;
 
         return (
-            <div className={classNames('nav-patient', {
+            <div className={classNames('nav-menu', {
                 collapsed: isCollapsed,
                 fold: isFold
             })}>
@@ -35,9 +35,9 @@ class NavPatients extends Component {
     }
 }
 
-NavPatients.propTypes = {
+NavMenu.propTypes = {
     isCollapsed: PropTypes.bool,
     isFold: PropTypes.bool
 };
 
-export default connect(state => ({}), dispatch => bindActionCreators({}, dispatch))(NavPatients);
+export default connect(state => ({}), dispatch => bindActionCreators({}, dispatch))(NavMenu);

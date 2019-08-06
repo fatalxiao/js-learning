@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import NavBarTop from './NavBarTop';
 import NavBarBottom from './NavBarBottom';
-import NavPatientMenu from '../patients/NavPatientsPopover';
+import NavPatientMenu from '../menu/NavMenuModulesPop';
 
 import 'scss/containers/app/nav/bar/NavBar.scss';
 

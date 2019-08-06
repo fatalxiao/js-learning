@@ -1,6 +1,6 @@
 @import '../../../../common.scss';
 
-.nav-patient-list-wrapper {
+.nav-menu-modules-list {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -17,7 +17,7 @@
         }
     }
 
-    .all-patients-button {
+    .all-modules-button {
         font-size: 16px !important;
         margin-bottom: 24px;
         font-weight: 700;
@@ -31,13 +31,6 @@
         .button-icon-left {
             font-size: 24px !important;
             margin-right: 12px;
-        }
-
-        .patients-count {
-            margin-left: 8px;
-            color: $theme-description;
-            font-weight: 400;
-            font-size: 14px;
         }
     }
 }

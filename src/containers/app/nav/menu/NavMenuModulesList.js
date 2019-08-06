@@ -6,11 +6,11 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import FlatButton from 'alcedo-ui/FlatButton';
-import PatientList from './NavPatientList';
+import Modules from './NavMenuModules';
 
-import 'scss/containers/app/nav/patients/NavPatientListWrapper.scss';
+import 'scss/containers/app/nav/menu/NavMenuModulesList.scss';
 
-class NavPatientListWrapper extends Component {
+class NavMenuModulesList extends Component {
 
     constructor(props) {
         super(props);
@@ -18,25 +18,24 @@ class NavPatientListWrapper extends Component {
 
     render() {
         return (
-            <div className="nav-patient-list-wrapper">
+            <div className="nav-menu-modules-list">
 
-                <FlatButton className="all-patients-button"
-                            value="All Patients"
+                <FlatButton className="all-modules-button"
+                            value="All Modules"
                             iconCls="icon-list">
-                    <span className="patients-count">[0]</span>
                 </FlatButton>
 
-                <PatientList/>
+                <Modules/>
 
             </div>
         );
     }
 }
 
-NavPatientListWrapper.propTypes = {
+NavMenuModulesList.propTypes = {
     routerPush: PropTypes.func
 };
 
 export default connect(state => ({}), dispatch => bindActionCreators({
     routerPush: actions.routerPush
-}, dispatch))(NavPatientListWrapper);
+}, dispatch))(NavMenuModulesList);

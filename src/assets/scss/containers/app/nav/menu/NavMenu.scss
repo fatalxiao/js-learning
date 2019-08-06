@@ -1,6 +1,6 @@
 @import '../../../../common.scss';
 
-.nav-patient {
+.nav-menu {
     flex: 1;
     box-sizing: border-box;
     height: 100%;
@@ -9,10 +9,6 @@
     overflow: hidden;
     top: 0;
     right: 0;
-
-    &.no-patient {
-        justify-content: center;
-    }
 
     &.collapsed {
         justify-content: flex-start;
