@@ -20,72 +20,37 @@ class NavBarTop extends Component {
         super(props);
 
         this.state = {
-            searchDrawerVisible: false,
-            addPatientDialogVisible: false
+            searchDrawerVisible: false
         };
 
-        this.goToLanding = ::this.goToLanding;
-        this.toggleSearch = ::this.toggleSearch;
-        this.hideSearch = ::this.hideSearch;
-        this.showAddPatient = ::this.showAddPatient;
-        this.hideAddPatient = ::this.hideAddPatient;
-        this.export = ::this.export;
-        this.exportLoadedHandler = ::this.exportLoadedHandler;
-
     }
 
-    goToLanding() {
+    goToLanding = () => {
         this.props.routerPush(DEFAULT_ROUTE);
-    }
+    };
 
-    toggleSearch() {
+    toggleSearch = () => {
         this.setState({
             searchDrawerVisible: !this.state.searchDrawerVisible
         });
-    }
+    };
 
-    hideSearch() {
+    hideSearch = () => {
         this.setState({
             searchDrawerVisible: false
         });
-    }
-
-    showAddPatient() {
-        this.setState({
-            addPatientDialogVisible: true
-        });
-    }
-
-    hideAddPatient() {
-        this.setState({
-            addPatientDialogVisible: false
-        });
-    }
-
-    export() {
-        this.downloadFieldEl.download();
-    }
-
-    exportLoadedHandler(e, innerText) {
-        //
-    }
-
-    componentDidMount() {
-        this.downloadFieldEl = this.refs.downloadField;
-    }
+    };
 
     render() {
 
         const {children, isFold} = this.props,
-            {searchDrawerVisible, addPatientDialogVisible} = this.state,
-
-            className = classNames('nav-bar-top', {
-                fold: isFold,
-                'search-drawer-visible': searchDrawerVisible
-            });
+            {searchDrawerVisible} = this.state;
 
         return (
-            <div className={className}>
+            <div className={classNames('nav-bar-top', {
+                fold: isFold,
+                'search-drawer-visible': searchDrawerVisible
+            })}>
 
                 <IconButton className="nav-bar-item nav-bar-logo-button"
                             onClick={this.goToLanding}>
@@ -98,18 +63,6 @@ class NavBarTop extends Component {
                             tip={searchDrawerVisible ? 'Back' : 'Search'}
                             tipPosition={IconButton.TipPosition.RIGHT}
                             onClick={this.toggleSearch}/>
-
-                <IconButton className="nav-bar-item"
-                            iconCls="icon-plus"
-                            tip="Add Patient"
-                            tipPosition={IconButton.TipPosition.RIGHT}
-                            onClick={this.showAddPatient}/>
-
-                <IconButton className="nav-bar-item nav-bar-export-button"
-                            iconCls="icon-download"
-                            tip="Export"
-                            tipPosition={IconButton.TipPosition.RIGHT}
-                            onClick={this.export}/>
 
                 <NavSearch visible={searchDrawerVisible}
                            onRequestClose={this.hideSearch}/>
