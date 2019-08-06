@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import NavBarTop from './NavBarTop';
 import NavBarBottom from './NavBarBottom';
-import NavPatientMenu from '../menu/NavMenuModulesPop';
+import NavBarMenu from './NavBarMenu';
 
 import 'scss/containers/app/nav/bar/NavBar.scss';
 
@@ -27,7 +27,7 @@ class NavBar extends Component {
 
                 <NavBarTop isFold={isFold}/>
 
-                <NavPatientMenu isFold={isFold}/>
+                <NavBarMenu isFold={isFold}/>
 
                 <NavBarBottom/>
 

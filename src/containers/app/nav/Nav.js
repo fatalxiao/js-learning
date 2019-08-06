@@ -16,8 +16,8 @@ class Nav extends Component {
         super(props);
 
         this.navBarWidth = 64;
-        this.navPatientWidth = 240;
-        this.defaultWidth = this.navBarWidth + this.navPatientWidth;
+        this.navMenuWidth = 240;
+        this.defaultWidth = this.navBarWidth + this.navMenuWidth;
 
         this.noMove = false;
         this.resizing = false;
@@ -47,7 +47,7 @@ class Nav extends Component {
     };
 
     isNavPatientFold = navWidth => {
-        return navWidth < this.navBarWidth + this.navPatientWidth / 3;
+        return navWidth < this.navBarWidth + this.navMenuWidth / 3;
     };
 
     toggleMouseDownHandler = e => {
@@ -61,7 +61,7 @@ class Nav extends Component {
 
     };
 
-    mouseMoveHandler = e => {
+    handleMouseMove = e => {
 
         e.stopPropagation();
 
@@ -83,7 +83,7 @@ class Nav extends Component {
 
     };
 
-    mouseUpHandler = () => {
+    handleMouseUp = () => {
 
         this.resizing = false;
 
@@ -122,40 +122,26 @@ class Nav extends Component {
     };
 
     componentDidMount() {
-        Event.addEvent(document, 'mousemove', this.mouseMoveHandler);
-        Event.addEvent(document, 'mouseup', this.mouseUpHandler);
+        Event.addEvent(document, 'mousemove', this.handleMouseMove);
+        Event.addEvent(document, 'mouseup', this.handleMouseUp);
     }
 
     componentWillUnmount() {
-        Event.removeEvent(document, 'mousemove', this.mouseMoveHandler);
-        Event.removeEvent(document, 'mouseup', this.mouseUpHandler);
+        Event.removeEvent(document, 'mousemove', this.handleMouseMove);
+        Event.removeEvent(document, 'mouseup', this.handleMouseUp);
     }
 
     render() {
 
         const {isDragging, navWidth, isNavPatientCollapsed, isNavPatientFold} = this.state,
-
-            collapsed = navWidth === this.navBarWidth,
-
-            wrapperClassName = classNames('nav', {
-                dragging: isDragging
-            }),
-            wrapperStyle = {
-                flexBasis: collapsed ? this.navBarWidth : navWidth
-            },
-            innerStyle = {
-                width: collapsed ? this.navBarWidth : navWidth
-            },
-            toggleClassName = classNames('nav-toggle', {
-                collapsed
-            });
+            collapsed = navWidth === this.navBarWidth;
 
         return (
-            <div className={wrapperClassName}
-                 style={wrapperStyle}>
+            <div className={classNames('nav', {dragging: isDragging})}
+                 style={{flexBasis: collapsed ? this.navBarWidth : navWidth}}>
 
                 <div className="nav-inner"
-                     style={innerStyle}>
+                     style={{width: collapsed ? this.navBarWidth : navWidth}}>
 
                     <NavBar isCollapsed={isNavPatientCollapsed}
                             isFold={isNavPatientFold}/>
@@ -166,7 +152,7 @@ class Nav extends Component {
                     <div className="nav-resize"
                          onMouseDown={this.toggleMouseDownHandler}
                          onMouseUp={this.toggleNav}>
-                        <div className={toggleClassName}></div>
+                        <div className={classNames('nav-toggle', {collapsed})}></div>
                     </div>
 
                 </div>

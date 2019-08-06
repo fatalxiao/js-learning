@@ -8,11 +8,11 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 import Popover from 'alcedo-ui/Popover';
-import PatientList from './NavMenuModules';
+import PatientList from '../menu/NavMenuModules';
 
-import 'scss/containers/app/nav/menu/NavMenuModulesPop.scss';
+import 'scss/containers/app/nav/bar/NavBarMenu.scss';
 
-class NavMenuModulesPop extends Component {
+class NavBarMenu extends Component {
 
     constructor(props) {
 
@@ -40,14 +40,14 @@ class NavMenuModulesPop extends Component {
             {popVisible} = this.state;
 
         return (
-            <div className="nav-menu-modules-pop-wrapper">
+            <div className="nav-bar-menu">
 
                 <IconButton ref="allPatientButton"
-                            className="nav-menu-modules-pop-trigger"
+                            className="nav-bar-menu-trigger"
                             iconCls="icon-list"
                             onMouseOver={() => this.allPatientMouseHandler(true)}/>
 
-                <Popover className="nav-menu-modules-pop"
+                <Popover className="nav-bar-menu-pop"
                          visible={isFold && popVisible}
                          triggerEl={this.allPatientButtonEl}
                          position={Popover.Position.RIGHT_TOP}
@@ -61,11 +61,11 @@ class NavMenuModulesPop extends Component {
     }
 }
 
-NavMenuModulesPop.propTypes = {
+NavBarMenu.propTypes = {
     isFold: PropTypes.bool,
     routerPush: PropTypes.func
 };
 
 export default connect(state => ({}), dispatch => bindActionCreators({
     routerPush: actions.routerPush
-}, dispatch))(NavMenuModulesPop);
+}, dispatch))(NavBarMenu);

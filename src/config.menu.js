@@ -1,5 +1,5 @@
 export default [{
     name: 'React Suspense',
-    desc: '...',
+    desc: 'Code Splitting',
     route: '/react-suspense'
 }];

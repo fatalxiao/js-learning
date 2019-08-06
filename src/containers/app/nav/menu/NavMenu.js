@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 
-import NavMenuModulesPop from './NavMenuModulesPop';
+import NavMenuModulesPop from '../bar/NavBarMenu';
 import NavMenuModulesList from './NavMenuModulesList';
 
 import 'scss/containers/app/nav/menu/NavMenu.scss';

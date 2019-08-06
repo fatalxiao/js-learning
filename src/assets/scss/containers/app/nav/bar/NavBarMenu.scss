@@ -1,12 +1,12 @@
-@import '../../../../common.scss';
+@import '../../../../common';
 
-.nav-menu-modules-pop-wrapper {
+.nav-bar-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: $theme-secondary;
 
-    .icon-button.nav-menu-modules-pop-trigger {
+    .icon-button.nav-bar-menu-trigger {
         border-radius: $theme-border-radius;
         width: 48px;
         height: 48px;
@@ -20,7 +20,7 @@
 
 }
 
-.nav-menu-modules-pop {
+.nav-bar-menu-pop {
 
     .popover-content {
         max-height: 480px;
