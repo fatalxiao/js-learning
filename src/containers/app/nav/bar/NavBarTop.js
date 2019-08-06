@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
-import NavSearch from './NavSearch';
+// import NavSearch from './NavSearch';
 
 import {DEFAULT_ROUTE} from 'src/config.routes';
 
@@ -35,11 +35,11 @@ class NavBarTop extends Component {
         });
     };
 
-    hideSearch = () => {
-        this.setState({
-            searchDrawerVisible: false
-        });
-    };
+    // hideSearch = () => {
+    //     this.setState({
+    //         searchDrawerVisible: false
+    //     });
+    // };
 
     render() {
 
@@ -58,14 +58,14 @@ class NavBarTop extends Component {
                     <div className="logo-animated"/>
                 </IconButton>
 
-                <IconButton className="nav-bar-item nav-bar-search-button"
-                            iconCls={searchDrawerVisible ? 'icon-reply' : 'icon-magnifying-glass'}
-                            tip={searchDrawerVisible ? 'Back' : 'Search'}
-                            tipPosition={IconButton.TipPosition.RIGHT}
-                            onClick={this.toggleSearch}/>
+                {/*<IconButton className="nav-bar-item nav-bar-search-button"*/}
+                {/*            iconCls={searchDrawerVisible ? 'icon-reply' : 'icon-magnifying-glass'}*/}
+                {/*            tip={searchDrawerVisible ? 'Back' : 'Search'}*/}
+                {/*            tipPosition={IconButton.TipPosition.RIGHT}*/}
+                {/*            onClick={this.toggleSearch}/>*/}
 
-                <NavSearch visible={searchDrawerVisible}
-                           onRequestClose={this.hideSearch}/>
+                {/*<NavSearch visible={searchDrawerVisible}*/}
+                {/*           onRequestClose={this.hideSearch}/>*/}
 
                 {children}
 

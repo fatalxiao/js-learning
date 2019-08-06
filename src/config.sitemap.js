@@ -6,32 +6,20 @@
 const rootSymbol = 'root';
 
 function sitemap(state) {
-
     return {
         [rootSymbol]: true,
         children: [{
-            name: 'DPE Manager',
-            route: '/app',
+            name: 'JS Learning',
+            route: '/js-learning',
             children: [{
-                name: 'Patient List',
-                route: '/app/patient-list'
+                name: 'Dynamic Programming',
+                route: '/js-learning/dynamic-programming'
             }, {
-                name: 'Patient',
-                route: '/app/patient',
-                children: [{
-                    name: 'Patient Information',
-                    route: '/app/patient/info'
-                }, {
-                    name: 'Analgesia Data',
-                    route: '/app/patient/analgesia'
-                }, {
-                    name: 'Observal Data',
-                    route: '/app/patient/observal'
-                }]
+                name: 'React Suspense',
+                route: '/js-learning/react-suspense'
             }]
         }]
     };
-
 }
 
 export function getPath(pathName, state) {

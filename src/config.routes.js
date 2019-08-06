@@ -6,12 +6,12 @@ export function configureRoutes(store) {
         path: '/',
         component: ac(() => import('containers/Root'), store),
         routes: [{
-            path: '/app',
-            component: ac(() => import('containers/app/App'), store),
+            path: '/js-learning',
+            component: ac(() => import('containers/app/JSLearning'), store),
             routes: []
         }]
     }];
 
 }
 
-export const DEFAULT_ROUTE = '/app';
+export const DEFAULT_ROUTE = '/js-learning';

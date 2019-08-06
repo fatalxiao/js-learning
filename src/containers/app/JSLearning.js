@@ -14,7 +14,7 @@ import Dom from 'vendors/Dom';
 
 import 'scss/containers/app/App.scss';
 
-class App extends Component {
+class JSLearning extends Component {
 
     constructor(props) {
         super(props);
@@ -51,10 +51,10 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
+JSLearning.propTypes = {
     componentLoading: PropTypes.bool
 };
 
 export default connect(state => ({
     componentLoading: state.loadComponent.loading
-}), dispatch => bindActionCreators({}, dispatch))(App);
+}), dispatch => bindActionCreators({}, dispatch))(JSLearning);
