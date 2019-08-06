@@ -39,26 +39,27 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
         alias: {
+
             'src': resolve('src'),
             'assets': resolve('src/assets'),
             'scss': resolve('src/assets/scss'),
             'images': resolve('src/assets/images'),
-            'messages': resolve('src/assets/messages'),
-            'stylesheets': resolve('src/assets/stylesheets'),
             'containers': resolve('src/containers'),
             'components': resolve('src/components'),
-            'customized': resolve('src/customized'),
             'reduxes': resolve('src/reduxes'),
             'apis': resolve('src/apis'),
             'statics': resolve('src/statics'),
-            'vendors': resolve('src/vendors')
+            'vendors': resolve('src/vendors'),
+
+            'modules': resolve('modules')
+
         }
     },
     module: {
         rules: [{
             test: /\.js$/,
             use: 'happypack/loader?id=js',
-            include: [resolve('src')]
+            include: [resolve('src'), resolve('modules')]
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
