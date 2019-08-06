@@ -1,6 +1,7 @@
 const open = require('open'),
     webpack = require('webpack'),
     express = require('express'),
+    history = require('connect-history-api-fallback'),
     log = require('friendly-errors-webpack-plugin/src/output'),
 
     config = require('../config.js'),
@@ -22,7 +23,8 @@ compiler.hooks.compilation.tap('html-webpack-plugin-after-emit', () => {
     hotMiddleware.publish({action: 'reload'});
 });
 
-app.use(devMiddleware)
+app.use(history())
+   .use(devMiddleware)
    .use(hotMiddleware)
    .use(config.dev.assetsVirtualRoot, express.static('./static'));
 
