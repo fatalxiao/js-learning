@@ -8,7 +8,11 @@ export function configureRoutes(store) {
         routes: [{
             path: '/js-learning',
             component: ac(() => import('containers/app/JSLearning'), store),
-            routes: []
+            routes: [{
+                path: '/js-learning/react-suspense',
+                component: ac(() => import('containers/app/modules/ReactSuspense'), store),
+                routes: []
+            }]
         }]
     }];
 

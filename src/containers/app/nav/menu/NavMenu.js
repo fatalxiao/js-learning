@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 
-import NavPatientCollapsed from './NavMenuModulesPop';
-import PatientListWrapper from './NavMenuModulesList';
+import NavMenuModulesPop from './NavMenuModulesPop';
+import NavMenuModulesList from './NavMenuModulesList';
 
 import 'scss/containers/app/nav/menu/NavMenu.scss';
 
@@ -26,9 +26,9 @@ class NavMenu extends Component {
             })}>
                 {
                     isCollapsed ?
-                        <NavPatientCollapsed isFold={isFold}/>
+                        <NavMenuModulesPop isFold={isFold}/>
                         :
-                        <PatientListWrapper/>
+                        <NavMenuModulesList/>
                 }
             </div>
         );
