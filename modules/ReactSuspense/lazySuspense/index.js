@@ -11,7 +11,7 @@ const TargetComponent = lazy(async () => {
     return import('../TargetComponent');
 });
 
-class ReactSuspense extends Component {
+class LazySuspense extends Component {
 
     constructor(props) {
         super(props);
@@ -26,4 +26,4 @@ class ReactSuspense extends Component {
     }
 }
 
-export default ReactSuspense;
+export default LazySuspense;

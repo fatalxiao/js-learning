@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import HOC from './hoc';
-import LazySuspense from './suspense';
+import LazySuspense from './lazySuspense';
 
 class ReactSuspense extends Component {
 
