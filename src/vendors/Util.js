@@ -199,6 +199,10 @@ function formatString(value) {
     return value === null || value === undefined ? '' : value;
 }
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(() => resolve(), time));
+}
+
 export default {
     getOffset,
     isEnableLocalStorage,
@@ -215,5 +219,6 @@ export default {
     recoverAriValue,
     macthObjectByValue,
     days2weeksDays,
-    formatString
+    formatString,
+    delay
 };

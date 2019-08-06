@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import Loading from 'alcedo-ui/CircularLoading';
 
+import Util from 'vendors/Util';
+
 function asyncComponent(getComponent) {
 
     return class AsyncComponent extends Component {
@@ -23,12 +25,11 @@ function asyncComponent(getComponent) {
             });
         };
 
-        loadCompleteCallback = () => {
-            setTimeout(() => {
-                this.setState({
-                    isLoading: false
-                });
-            }, 4000);
+        loadCompleteCallback = async () => {
+            await Util.delay(4000);
+            this.setState({
+                isLoading: false
+            });
         };
 
         loadComponent = callback => {

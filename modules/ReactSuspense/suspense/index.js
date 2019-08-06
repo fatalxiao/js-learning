@@ -2,15 +2,14 @@ import React, {Component, lazy, Suspense} from 'react';
 
 import Loading from 'alcedo-ui/CircularLoading';
 
+import Util from 'vendors/Util';
+
 // const TargetComponent = lazy(() => import('../TargetComponent'));
 
-const TargetComponent = lazy(() =>
-    new Promise(resolve =>
-        setTimeout(() => {
-            import('../TargetComponent').then(component => resolve(component));
-        }, 4000)
-    )
-);
+const TargetComponent = lazy(async () => {
+    await Util.delay(4000);
+    return import('../TargetComponent');
+});
 
 class ReactSuspense extends Component {
 
