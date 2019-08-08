@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 function TargetImage(props) {
     return (
-        <img style={{height: 200}}
+        <img style={{
+            width: '100%',
+            padding: 8
+        }}
              alt="Target Image"
              src={props.src}/>
     );
