@@ -203,6 +203,14 @@ function delay(time) {
     return new Promise(resolve => setTimeout(() => resolve(), time));
 }
 
+function preloadImage(src) {
+    return new Promise(resolve => {
+        const image = new Image();
+        image.onload = () => resolve(src);
+        image.src = src;
+    });
+}
+
 export default {
     getOffset,
     isEnableLocalStorage,
@@ -220,5 +228,6 @@ export default {
     macthObjectByValue,
     days2weeksDays,
     formatString,
-    delay
+    delay,
+    preloadImage
 };

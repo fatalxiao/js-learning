@@ -26,7 +26,7 @@ function asyncComponent(getComponent) {
         };
 
         loadCompleteCallback = async () => {
-            await Util.delay(4000);
+            await Util.delay(2000);
             this.setState({
                 isLoading: false
             });
