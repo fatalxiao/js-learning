@@ -8,7 +8,9 @@ import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
 import Popover from 'alcedo-ui/Popover';
+import Drawer from 'alcedo-ui/Drawer';
 import NavMenuModules from '../menu/NavMenuModules';
+import ModuleList from '../menu/NavMenuModulesList';
 
 import 'scss/containers/app/nav/bar/NavBarMenu.scss';
 
@@ -24,9 +26,17 @@ class NavBarMenu extends Component {
 
     }
 
-    allPatientMouseHandler = popVisible => {
+    handleMouseOver = e => {
+        e.stopPropagation();
         this.setState({
-            popVisible
+            popVisible: true
+        });
+    };
+
+    handleMouseOut = e => {
+        e.stopPropagation();
+        this.setState({
+            popVisible: false
         });
     };
 
@@ -45,16 +55,24 @@ class NavBarMenu extends Component {
                 <IconButton ref="allPatientButton"
                             className="nav-bar-menu-trigger"
                             iconCls="icon-list"
-                            onMouseOver={() => this.allPatientMouseHandler(true)}/>
+                            onMouseOver={this.handleMouseOver}/>
 
-                <Popover className="nav-bar-menu-pop"
-                         visible={isFold && popVisible}
-                         triggerEl={this.allPatientButtonEl}
-                         position={Popover.Position.RIGHT_TOP}
-                         hasTriangle={false}
-                         onRequestClose={() => this.allPatientMouseHandler(false)}>
-                    <NavMenuModules/>
-                </Popover>
+                {/*<Popover className="nav-bar-menu-pop"*/}
+                {/*         visible={isFold && popVisible}*/}
+                {/*         triggerEl={this.allPatientButtonEl}*/}
+                {/*         position={Popover.Position.RIGHT_TOP}*/}
+                {/*         hasTriangle={false}*/}
+                {/*         onRequestClose={() => this.allPatientMouseHandler(false)}>*/}
+                {/*    <NavMenuModules/>*/}
+                {/*</Popover>*/}
+
+                <Drawer className="nav-bar-menu-drawer"
+                        visible={isFold && popVisible}
+                        showModal={false}
+                        parentEl={document.querySelector('.nav-inner')}
+                        onMouseOut={this.handleMouseOut}>
+                    <ModuleList/>
+                </Drawer>
 
             </div>
         );
