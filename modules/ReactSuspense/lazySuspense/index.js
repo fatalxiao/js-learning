@@ -19,7 +19,7 @@ function preloadImage(src) {
     });
 }
 
-const IMAGE_SRC = 'https://raw.githubusercontent.com/alcedo-ui/alcedo-ui/master/examples/assets/images/intro-bg.jpg22',
+const IMAGE_SRC = 'https://raw.githubusercontent.com/alcedo-ui/alcedo-ui/master/examples/assets/images/intro-bg.jpg',
     TargetImage = lazy(async () => {
         await Util.delay(4000);
         await preloadImage(IMAGE_SRC);
