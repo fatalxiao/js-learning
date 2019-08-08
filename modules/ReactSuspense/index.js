@@ -1,27 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import HOC from './hoc';
 import LazySuspense from './lazySuspense';
 
-class ReactSuspense extends Component {
+function ReactSuspense() {
+    return (
+        <div>
 
-    constructor(props) {
-        super(props);
-    }
+            <p>Use HOC:</p>
+            <HOC/>
 
-    render() {
-        return (
-            <div>
+            <p>Use Suspense</p>
+            <LazySuspense/>
 
-                <p>Use HOC:</p>
-                <HOC/>
-
-                <p>Use Suspense</p>
-                <LazySuspense/>
-
-            </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default ReactSuspense;

@@ -1,22 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class TargetComponent extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div style={{
-                height: 200,
-                background: '#ddd',
-                padding: 20
-            }}>
-                Target Component
-            </div>
-        );
-    }
+function TargetComponent() {
+    return (
+        <div style={{
+            height: 200,
+            padding: 20,
+            background: '#ecf0f3',
+            border: '1px solid #4f6379',
+            borderRadius: 4,
+            margin: 8
+        }}>
+            Target Component
+        </div>
+    );
 }
 
 export default TargetComponent;
