@@ -11,14 +11,15 @@ const TargetComponent = lazy(async () => {
 });
 
 function preloadImage(src) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         const image = new Image();
         image.onload = () => resolve(src);
+        image.onerror = () => resolve(src);
         image.src = src;
     });
 }
 
-const IMAGE_SRC = 'https://raw.githubusercontent.com/alcedo-ui/alcedo-ui/master/examples/assets/images/intro-bg.jpg',
+const IMAGE_SRC = 'https://raw.githubusercontent.com/alcedo-ui/alcedo-ui/master/examples/assets/images/intro-bg.jpg22',
     TargetImage = lazy(async () => {
         await Util.delay(4000);
         await preloadImage(IMAGE_SRC);
