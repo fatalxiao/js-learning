@@ -23,9 +23,10 @@ class AsyncImage extends Component {
         await Util.delay(4000);
 
         const image = new Image();
-        image.onload = () => this.setState({
-            loaded: true
-        });
+        image.onload = () =>
+            this.setState({
+                loaded: true
+            });
         image.src = src;
 
     };

@@ -1,4 +1,4 @@
-import React, {Component, lazy, Suspense} from 'react';
+import React, {lazy, Suspense} from 'react';
 
 import Loading from 'alcedo-ui/CircularLoading';
 
@@ -10,10 +10,18 @@ const TargetComponent = lazy(async () => {
     return import('../TargetComponent');
 });
 
+function preloadImage(src) {
+    return new Promise(resolve => {
+        const image = new Image();
+        image.onload = () => resolve(src);
+        image.src = src;
+    });
+}
+
 const IMAGE_SRC = 'https://raw.githubusercontent.com/alcedo-ui/alcedo-ui/master/examples/assets/images/intro-bg.jpg',
     TargetImage = lazy(async () => {
         await Util.delay(4000);
-        await Util.preloadImage(IMAGE_SRC);
+        await preloadImage(IMAGE_SRC);
         return import('../TargetImage');
     });
 
