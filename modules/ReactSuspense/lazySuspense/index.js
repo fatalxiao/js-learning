@@ -17,24 +17,17 @@ const IMAGE_SRC = 'https://raw.githubusercontent.com/alcedo-ui/alcedo-ui/master/
         return import('../TargetImage');
     });
 
-class LazySuspense extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Suspense fallback={<Loading/>}>
-                <div>
-                    <TargetComponent/>
-                </div>
-                <div>
-                    <TargetImage src={IMAGE_SRC}/>
-                </div>
-            </Suspense>
-        );
-    }
+function LazySuspense() {
+    return (
+        <Suspense fallback={<Loading/>}>
+            <div>
+                <TargetComponent/>
+            </div>
+            <div>
+                <TargetImage src={IMAGE_SRC}/>
+            </div>
+        </Suspense>
+    );
 }
 
 export default LazySuspense;

@@ -1,18 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 function TargetImage(props) {
-
-    const {src} = props;
-
     return (
-        <img style={{
-            height: 200
-        }}
+        <img style={{height: 200}}
              alt="Target Image"
-             src={src}/>
+             src={props.src}/>
     );
-
 }
 
 TargetImage.propTypes = {
