@@ -8,7 +8,7 @@ module.exports = {
     productionGzipExtensions: ['js', 'css'],
 
     dev: {
-        port: 3001,
+        port: 4000,
         srcRoot: path.resolve(__dirname, '../src'),
         index: path.resolve(__dirname, '../src/index.html'),
         assetsVirtualRoot: path.posix.join('/', 'static'),
@@ -23,7 +23,7 @@ module.exports = {
     },
 
     demo: {
-        port: 3002
+        port: 4001
     }
 
 };
