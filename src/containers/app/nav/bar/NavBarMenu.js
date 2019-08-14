@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import IconButton from 'alcedo-ui/IconButton';
-import Drawer from 'alcedo-ui/Drawer';
+import Drawer from './NavBarDrawer';
 import ModuleList from '../menu/NavMenuModulesList';
 
 import 'scss/containers/app/nav/bar/NavBarMenu.scss';
@@ -43,15 +43,12 @@ class NavBarMenu extends Component {
         return (
             <div className="nav-bar-menu">
 
-                <IconButton ref="allPatientButton"
-                            className="nav-bar-menu-trigger"
+                <IconButton className="nav-bar-menu-trigger"
                             iconCls="icon-list"
                             onClick={this.showDrawer}/>
 
                 <Drawer className="nav-bar-menu-drawer"
                         visible={isFold && popVisible}
-                        showModal={false}
-                        parentEl={document.querySelector('.nav-inner')}
                         onRequestClose={this.hideDrawer}>
                     <ModuleList/>
                 </Drawer>
