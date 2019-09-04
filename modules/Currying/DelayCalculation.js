@@ -1,8 +1,8 @@
-const sum = (...value) => {
-    const fn = (...anotherValue) => sum(...value, ...anotherValue);
+const sum = (...args) => {
+    const fn = (...anotherArgs) => sum(...args, ...anotherArgs);
     fn.equalTo = () => {
         console.log('calculate');
-        return value.reduce((a, b) => a + b);
+        return args.reduce((a, b) => a + b);
     };
     return fn;
 };
