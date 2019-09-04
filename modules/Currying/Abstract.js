@@ -32,7 +32,7 @@ isListsEven(list1, list2, list3);
 /**
  * Currying
  */
-const curryingJudgement = judgement => lists => lists.every(list => judgement(list));
+const curryingJudgement = judgement => (...lists) => lists.every(list => judgement(list));
 const isListsOddCurrying = curryingJudgement(isListOdd);
 const isListsEvenCurrying = curryingJudgement(isListEven);
 
