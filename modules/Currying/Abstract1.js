@@ -14,27 +14,27 @@ const isEven = value => value % 2 === 0;
 const isListOdd = list => list.every(item => isOdd(item));
 const isListEven = list => list.every(item => isEven(item));
 
-isListOdd(list1);
-isListOdd(list2);
-isListOdd(list3);
+isListOdd(list1); // false
+isListOdd(list2); // true
+isListOdd(list3); // false
 
-isListEven(list1);
-isListEven(list2);
-isListEven(list3);
+isListEven(list1); // false
+isListEven(list2); // false
+isListEven(list3); // true
 
 // Lists Judgement
-const isListsOdd = (...lists) => lists.every(list => isListOdd(list));
-const isListsEven = (...lists) => lists.every(list => isListEven(list));
+const isListsOdd = (...lists) => lists.some(list => isListOdd(list));
+const isListsEven = (...lists) => lists.some(list => isListEven(list));
 
-isListsOdd(list1, list2, list3);
-isListsEven(list1, list2, list3);
+isListsOdd(list1, list2, list3); // true
+isListsEven(list1, list2, list3); // true
 
 /**
  * Currying
  */
-const curryingJudgement = judgement => (...lists) => lists.every(list => judgement(list));
+const curryingJudgement = judgement => (...lists) => lists.some(list => judgement(list));
 const curryingIsListsOdd = curryingJudgement(isListOdd);
 const curryingIsListsEven = curryingJudgement(isListEven);
 
-curryingIsListsOdd(list1, list2, list3);
-curryingIsListsEven(list1, list2, list3);
+curryingIsListsOdd(list1, list2, list3); // true
+curryingIsListsEven(list1, list2, list3); // true
