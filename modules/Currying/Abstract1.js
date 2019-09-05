@@ -6,6 +6,8 @@ const list1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 const isOdd = value => value % 2 === 1;
 const isEven = value => value % 2 === 0;
 
+
+
 /**
  * Common Usage
  */
@@ -28,6 +30,8 @@ const isEvenListExist = (...lists) => lists.some(list => isEvenList(list));
 
 isOddListExist(list1, list2, list3); // true
 isEvenListExist(list1, list2, list3); // true
+
+
 
 /**
  * Currying
