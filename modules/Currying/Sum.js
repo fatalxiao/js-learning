@@ -1,5 +1,5 @@
 const sum = (...args) => {
-    const fn = (...anotherArgs) => sum(...args, ...anotherArgs);
+    const fn = (...otherArgs) => sum(...args, ...otherArgs);
     fn.toString = () => args.reduce((a, b) => a + b);
     return fn;
 };
