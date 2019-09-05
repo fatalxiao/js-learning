@@ -9,7 +9,7 @@ check(/[a-z]+/g, 'test'); // true
 
 
 /**
- * currying
+ * Currying
  */
 const curryingCheck = reg => string => reg.test(string);
 
