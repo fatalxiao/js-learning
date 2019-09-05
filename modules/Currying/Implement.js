@@ -12,7 +12,7 @@ function progressCurrying(fn, ...args) {
             return progressCurrying.call(self, fn, ...args);
         }
 
-        // 参数收集完毕，则执行fn
+        // 参数收集完毕，则执行 fn
         return fn.call(self, ...args);
 
     };
