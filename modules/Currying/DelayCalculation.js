@@ -1,5 +1,5 @@
 const sum = (...args) => {
-    const fn = (...anotherArgs) => sum(...args, ...anotherArgs);
+    const fn = (...otherArgs) => sum(...args, ...otherArgs);
     fn.equalTo = () => {
         console.log('calculate');
         return args.reduce((a, b) => a + b);
