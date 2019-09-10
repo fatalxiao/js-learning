@@ -19,19 +19,28 @@ class NavMenuModules extends Component {
         super(props);
     }
 
+    handleClick = module => {
+
+        if (!module) {
+            return;
+        }
+
+        const {onRequestClose, routerPush} = this.props;
+
+        routerPush && routerPush(`/js-learning${module.route}`);
+        onRequestClose && onRequestClose();
+
+    };
+
     render() {
-
-        const {routerPush} = this.props;
-
         return (
             <div className="nav-menu-modules"
                  onWheel={e => Event.preventContainerScroll(e)}>
-
                 {
                     menu && menu.map((module, index) => module ?
                         <FlatButton key={index}
                                     className="nav-menu-module"
-                                    onClick={() => routerPush(`/js-learning${module.route}`)}>
+                                    onClick={() => this.handleClick(module)}>
 
                             <div className="module-info">
                                 <span className="module-name">{module.name}</span>
@@ -46,10 +55,8 @@ class NavMenuModules extends Component {
                         null
                     )
                 }
-
             </div>
         );
-
     }
 }
 
@@ -57,6 +64,7 @@ NavMenuModules.propTypes = {
 
     data: PropTypes.array,
 
+    onRequestClose: PropTypes.func,
     routerPush: PropTypes.func
 
 };

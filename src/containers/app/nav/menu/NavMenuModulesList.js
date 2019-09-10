@@ -17,6 +17,9 @@ class NavMenuModulesList extends Component {
     }
 
     render() {
+
+        const {onRequestClose} = this.props;
+
         return (
             <div className="nav-menu-modules-list">
 
@@ -25,14 +28,16 @@ class NavMenuModulesList extends Component {
                             iconCls="icon-list">
                 </FlatButton>
 
-                <Modules/>
+                <Modules onRequestClose={onRequestClose}/>
 
             </div>
         );
+
     }
 }
 
 NavMenuModulesList.propTypes = {
+    onRequestClose: PropTypes.func,
     routerPush: PropTypes.func
 };
 

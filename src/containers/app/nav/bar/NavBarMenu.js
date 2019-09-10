@@ -50,7 +50,7 @@ class NavBarMenu extends Component {
                 <Drawer className="nav-bar-menu-drawer"
                         visible={isFold && popVisible}
                         onRequestClose={this.hideDrawer}>
-                    <ModuleList/>
+                    <ModuleList onRequestClose={this.hideDrawer}/>
                 </Drawer>
 
             </div>
