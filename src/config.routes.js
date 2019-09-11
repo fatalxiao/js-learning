@@ -9,9 +9,11 @@ export function configureRoutes(store) {
             path: '/js-learning',
             component: ac(() => import('containers/app/JSLearning'), store),
             routes: [{
+                path: '/js-learning/dynamic-programming',
+                component: ac(() => import('containers/app/modules/DynamicProgramming/DynamicProgramming'), store)
+            }, {
                 path: '/js-learning/react-suspense',
-                component: ac(() => import('modules/ReactSuspense'), store),
-                routes: []
+                component: ac(() => import('modules/ReactSuspense'), store)
             }]
         }]
     }];

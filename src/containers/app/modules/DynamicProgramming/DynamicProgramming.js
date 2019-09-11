@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import LongestIncreaseSequence from './LongestIncreaseSequence/LongestIncreaseSequence';
+
 class DynamicProgramming extends Component {
 
     constructor(props) {
@@ -9,7 +11,7 @@ class DynamicProgramming extends Component {
     render() {
         return (
             <div>
-
+                <LongestIncreaseSequence/>
             </div>
         );
     }
