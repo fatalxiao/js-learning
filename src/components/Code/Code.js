@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import CodeEditor from './CodeEditor';
-import FullScreenIcon from './CodeFullScreenIcon';
+import Toolbar from './CodeToolbar';
 
 import ComponentUtil from 'vendors/ComponentUtil';
 
@@ -60,7 +60,8 @@ class Code extends Component {
                 <CodeEditor value={value}
                             onChange={this.handleChange}/>
 
-                <FullScreenIcon onClick={this.toggleFullScreen}/>
+                <Toolbar value={value}
+                         onToggleFullScreen={this.toggleFullScreen}/>
 
             </div>
         );

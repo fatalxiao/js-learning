@@ -15,12 +15,12 @@ class CodeFullScreenIcon extends Component {
 
     render() {
 
-        const {isFullScreen, onClick} = this.props;
+        const {isFullScreen, onToggleFullScreen} = this.props;
 
         return (
-            <IconButton className="code-full-screen-icon"
+            <IconButton className="code-toolbar-icon code-full-screen-icon"
                         iconCls={isFullScreen ? 'icon-resize-100' : 'icon-resize-full-screen'}
-                        onClick={onClick}/>
+                        onClick={onToggleFullScreen}/>
         );
 
     }
@@ -28,7 +28,7 @@ class CodeFullScreenIcon extends Component {
 
 CodeFullScreenIcon.propTypes = {
     isFullScreen: PropTypes.bool,
-    onClick: PropTypes.func
+    onToggleFullScreen: PropTypes.func
 };
 
 export default connect(state => ({

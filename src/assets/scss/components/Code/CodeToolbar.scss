@@ -1,0 +1,17 @@
+@import '../../common.scss';
+
+.code-toolbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity $theme-transition-duration ease-in-out;
+
+    & > .code-toolbar-icon {
+        font-size: 20px;
+    }
+}
+
+.code:hover .code-toolbar {
+    opacity: 1;
+}
