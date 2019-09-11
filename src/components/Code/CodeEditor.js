@@ -16,17 +16,17 @@ class CodeArea extends Component {
 
     render() {
 
-        const {data, isFullScreen} = this.props;
+        const {value, isFullScreen, onChange} = this.props;
 
         return (
             <AceEditor className="code-editor"
                        mode="javascript"
                        theme="monokai"
                        width="100%"
-                       height={isFullScreen ? '100%' : 600}
-                       value={data}
+                       height={isFullScreen ? '100%' : value.split(/\r?\n/).length * 19}
+                       value={value}
                        fontSize={14}
-                       showPrintMargin={true}
+                       showPrintMargin={false}
                        showGutter={true}
                        highlightActiveLine={true}
                        setOptions={{
@@ -36,15 +36,18 @@ class CodeArea extends Component {
                            showLineNumbers: true,
                            tabSize: 4
                        }}
-                       onChange={this.changeHandler}
-                       onScroll={this.editorScrollHandler}/>
+                       onChange={onChange}/>
         );
     }
 }
 
 CodeArea.propTypes = {
-    data: PropTypes.string,
-    isFullScreen: PropTypes.bool
+
+    value: PropTypes.string,
+    isFullScreen: PropTypes.bool,
+
+    onChange: PropTypes.func
+
 };
 
 export default connect(state => ({

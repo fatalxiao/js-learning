@@ -5,9 +5,10 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import CodeArea from './CodeArea';
 import CodeEditor from './CodeEditor';
 import FullScreenIcon from './CodeFullScreenIcon';
+
+import ComponentUtil from 'vendors/ComponentUtil';
 
 import 'scss/components/Code/Code.scss';
 
@@ -20,7 +21,17 @@ class Code extends Component {
         this.wrapper = createRef();
         this.wrapperEl = null;
 
+        this.state = {
+            value: props.value || ''
+        };
+
     }
+
+    handleChange = value => {
+        this.setState({
+            value
+        });
+    };
 
     toggleFullScreen = () => {
         const {toggleFullScreen} = this.props;
@@ -31,15 +42,23 @@ class Code extends Component {
         this.wrapperEl = this.wrapper && this.wrapper.current;
     }
 
+    static getDerivedStateFromProps(props, state) {
+        return {
+            prevProps: props,
+            value: ComponentUtil.getDerivedState(props, state, 'value')
+        };
+    }
+
     render() {
 
-        const {data} = this.props;
+        const {value} = this.state;
 
         return (
             <div ref={this.wrapper}
                  className="code">
 
-                <CodeEditor data={data}/>
+                <CodeEditor value={value}
+                            onChange={this.handleChange}/>
 
                 <FullScreenIcon onClick={this.toggleFullScreen}/>
 
@@ -51,7 +70,7 @@ class Code extends Component {
 
 Code.propTypes = {
 
-    data: PropTypes.any,
+    value: PropTypes.any,
 
     toggleFullScreen: PropTypes.func
 

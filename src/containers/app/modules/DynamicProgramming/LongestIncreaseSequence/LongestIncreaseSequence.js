@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Code from 'components/Code/Code';
 
-import data from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequence';
+import value from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequence';
 
 class LongestIncreaseSequence extends Component {
 
@@ -12,7 +12,7 @@ class LongestIncreaseSequence extends Component {
 
     render() {
         return (
-            <Code data={data}/>
+            <Code value={value}/>
         );
     }
 }

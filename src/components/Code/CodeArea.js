@@ -19,19 +19,19 @@ class CodeArea extends Component {
 
     render() {
 
-        const {data, isFullScreen} = this.props;
+        const {value, isFullScreen} = this.props;
 
         return (
             <code className={classNames('javascript code-area', {
                 'full-screen': isFullScreen
             })}
-                  dangerouslySetInnerHTML={{__html: hljs.highlightAuto(data).value}}/>
+                  dangerouslySetInnerHTML={{__html: hljs.highlightAuto(value).value}}/>
         );
     }
 }
 
 CodeArea.propTypes = {
-    data: PropTypes.string,
+    value: PropTypes.string,
     isFullScreen: PropTypes.bool
 };
 
