@@ -14,15 +14,13 @@ class DisplayField extends Component {
 
     render() {
 
-        const {className, label, children, ...restProps} = this.props,
-
-            fieldClassName = classNames('display-field', {
-                [className]: className
-            });
+        const {className, label, children, ...restProps} = this.props;
 
         return (
             <MaterialProvider {...restProps}
-                              className={fieldClassName}
+                              className={classNames('display-field', {
+                                  [className]: className
+                              })}
                               label={label}
                               isLabelAnimate={false}
                               useSeparator={false}>
@@ -36,17 +34,10 @@ class DisplayField extends Component {
 
 DisplayField.propTypes = {
 
+    children: PropTypes.any,
+
     className: PropTypes.string,
-
     label: PropTypes.string
-
-};
-
-DisplayField.defaultProps = {
-
-    className: null,
-
-    label: ''
 
 };
 
