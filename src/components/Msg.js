@@ -5,7 +5,7 @@ import Util from 'vendors/Util';
 
 import 'scss/components/Msg.scss';
 
-export default class Msg extends Component {
+class Msg extends Component {
 
     static Type = {
         ERROR: {
@@ -64,3 +64,5 @@ Msg.defaultProps = {
     type: Msg.Type.INFO,
     hasIcon: true
 };
+
+export default Msg;
