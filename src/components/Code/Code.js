@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'reduxes/actions';
 
 import CodeArea from './CodeArea';
+import CodeEditor from './CodeEditor';
 import FullScreenIcon from './CodeFullScreenIcon';
 
 import 'scss/components/Code/Code.scss';
@@ -38,7 +39,7 @@ class Code extends Component {
             <div ref={this.wrapper}
                  className="code">
 
-                <CodeArea data={data}/>
+                <CodeEditor data={data}/>
 
                 <FullScreenIcon onClick={this.toggleFullScreen}/>
 
