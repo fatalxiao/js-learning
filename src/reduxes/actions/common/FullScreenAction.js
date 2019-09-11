@@ -3,14 +3,12 @@ import * as types from 'reduxes/actionTypes';
 /**
  * 请求全屏
  * @param el
- * @param fullScreenClassName
  * @param callback
  * @returns {function(*): *}
  */
-export const requestFullScreen = (el, fullScreenClassName, callback) => dispatch => dispatch({
+export const requestFullScreen = (el, callback) => dispatch => dispatch({
     type: types.REQUEST_FULL_SCREEN,
     el,
-    fullScreenClassName,
     callback
 });
 
@@ -37,11 +35,10 @@ export const updateFullScreen = isFullScreen => dispatch => dispatch({
 /**
  * 切换全屏
  * @param el
- * @param fullScreenClassName
  * @param callback
  * @returns {Function}
  */
-export const toggleFullScreen = (el, fullScreenClassName, callback) => (dispatch, getState) => {
+export const toggleFullScreen = (el, callback) => (dispatch, getState) => {
     if (getState().fullScreen.isFullScreen) {
         dispatch({
             type: types.EXIT_FULL_SCREEN,
@@ -51,7 +48,6 @@ export const toggleFullScreen = (el, fullScreenClassName, callback) => (dispatch
         dispatch({
             type: types.REQUEST_FULL_SCREEN,
             el,
-            fullScreenClassName,
             callback
         });
     }

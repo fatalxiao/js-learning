@@ -3,8 +3,7 @@ import screenfull from 'screenfull';
 import * as actionTypes from 'reduxes/actionTypes';
 
 const initialState = {
-    isFullScreen: screenfull ? screenfull.isFullscreen : false,
-    fullScreenClassName: null
+    isFullScreen: screenfull ? screenfull.isFullscreen : false
 };
 
 /**
@@ -52,8 +51,7 @@ function fullScreen(state = initialState, action) {
 
             return {
                 ...state,
-                isFullScreen: true,
-                fullScreenClassName: action.fullScreenClassName
+                isFullScreen: true
             };
 
         }
@@ -67,8 +65,7 @@ function fullScreen(state = initialState, action) {
 
             return {
                 ...state,
-                isFullScreen: false,
-                fullScreenClassName: null
+                isFullScreen: false
             };
 
         }
@@ -82,8 +79,7 @@ function fullScreen(state = initialState, action) {
 
             return {
                 ...state,
-                isFullScreen,
-                fullScreenClassName: isFullScreen ? state.fullScreenClassName : null
+                isFullScreen
             };
 
         }
