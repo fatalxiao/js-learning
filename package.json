@@ -48,7 +48,8 @@
         "react-router-dom": "5.0.1",
         "react-transition-group": "4.3.0",
         "redux": "4.0.4",
-        "redux-thunk": "2.3.0"
+        "redux-thunk": "2.3.0",
+        "screenfull": "^5.0.0"
     },
     "devDependencies": {
         "@babel/core": "7.6.0",
