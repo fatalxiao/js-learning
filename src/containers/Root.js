@@ -57,6 +57,9 @@ class Root extends Component {
 
 Root.propTypes = {
 
+    location: PropTypes.object,
+    route: PropTypes.object,
+
     toastes: PropTypes.array,
     notifiers: PropTypes.array,
 
