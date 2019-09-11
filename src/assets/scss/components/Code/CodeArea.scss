@@ -6,4 +6,8 @@
     border-radius: 4px;
     overflow-x: auto;
     white-space: pre;
+
+    &.full-screen {
+        height: 100%;
+    }
 }
