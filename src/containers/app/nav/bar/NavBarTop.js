@@ -77,6 +77,7 @@ class NavBarTop extends Component {
 
 NavBarTop.propTypes = {
 
+    children: PropTypes.any,
     isFold: PropTypes.bool,
 
     routerPush: PropTypes.func
