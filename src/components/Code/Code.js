@@ -1,14 +1,33 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import * as actions from 'reduxes/actions';
 
 import CodeArea from './CodeArea';
+import FullScreenIcon from './CodeFullScreenIcon';
 
 import 'scss/components/Code/Code.scss';
 
 class Code extends Component {
 
     constructor(props) {
+
         super(props);
+
+        this.wrapper = createRef();
+        this.wrapperEl = null;
+
+    }
+
+    toggleFullScreen = () => {
+        const {toggleFullScreen} = this.props;
+        toggleFullScreen && toggleFullScreen(this.wrapperEl);
+    };
+
+    componentDidMount() {
+        this.wrapperEl = this.wrapper && this.wrapper.current;
     }
 
     render() {
@@ -16,14 +35,27 @@ class Code extends Component {
         const {data} = this.props;
 
         return (
-            <CodeArea data={data}/>
+            <div ref={this.wrapper}
+                 className="code">
+
+                <CodeArea data={data}/>
+
+                <FullScreenIcon onClick={this.toggleFullScreen}/>
+
+            </div>
         );
 
     }
 }
 
 Code.propTypes = {
-    data: PropTypes.any
+
+    data: PropTypes.any,
+
+    toggleFullScreen: PropTypes.func
+
 };
 
-export default Code;
+export default connect(state => ({}), dispatch => bindActionCreators({
+    toggleFullScreen: actions.toggleFullScreen
+}, dispatch))(Code);

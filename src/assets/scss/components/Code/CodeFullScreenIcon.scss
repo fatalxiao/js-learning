@@ -1,0 +1,14 @@
+@import '../../common.scss';
+
+.code-full-screen-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity $theme-transition-duration ease-in-out;
+}
+
+.code:hover .code-full-screen-icon {
+    opacity: 1;
+}
