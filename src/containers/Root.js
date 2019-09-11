@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {renderRoutes} from 'react-router-config';
 import {Redirect} from 'react-router-dom';
+import eventsOn from 'dom-helpers/events/on';
+import eventsOff from 'dom-helpers/events/off';
 
 import * as actions from 'reduxes/actions';
 
@@ -22,6 +24,24 @@ class Root extends Component {
 
     constructor(props) {
         super(props);
+    }
+
+    handleKeyDown = e => {
+
+        // press esc
+        if (e.keyCode === 27) {
+            const {updateFullScreen} = this.props;
+            updateFullScreen && updateFullScreen(false);
+        }
+
+    };
+
+    componentDidMount() {
+        eventsOn(document, 'keydown', this.handleKeyDown);
+    }
+
+    componentWillUnmount() {
+        eventsOff(document, 'keydown', this.handleKeyDown);
     }
 
     render() {
@@ -64,7 +84,8 @@ Root.propTypes = {
     notifiers: PropTypes.array,
 
     clearToaste: PropTypes.func,
-    clearNotifier: PropTypes.func
+    clearNotifier: PropTypes.func,
+    updateFullScreen: PropTypes.func
 
 };
 
@@ -73,5 +94,6 @@ export default connect(state => ({
     notifiers: state.appNotifier.notifiers
 }), dispatch => bindActionCreators({
     clearToaste: actions.clearToaste,
-    clearNotifier: actions.clearNotifier
+    clearNotifier: actions.clearNotifier,
+    updateFullScreen: actions.updateFullScreen
 }, dispatch))(Root);
