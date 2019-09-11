@@ -19,9 +19,9 @@ class Code extends Component {
         const {data} = this.props;
 
         return (
-            <div className="code">
-                {hljs.highlightAuto(data).value}
-            </div>
+            <code className="javascript code"
+                  dangerouslySetInnerHTML={{__html: hljs.highlightAuto(data).value}}>
+            </code>
         );
     }
 }
