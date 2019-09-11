@@ -50,9 +50,4 @@ StepAction.propTypes = {
 
 };
 
-StepAction.defaultProps = {
-    isFirst: false,
-    isLast: false
-};
-
 export default StepAction;
