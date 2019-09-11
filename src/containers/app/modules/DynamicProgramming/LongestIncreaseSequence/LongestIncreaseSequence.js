@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Code from 'components/Code/CodeArea';
+import Code from 'components/Code/Code';
 
 import data from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequence';
 
