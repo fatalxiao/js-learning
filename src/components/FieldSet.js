@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import 'scss/components/FieldSet.scss';
 
-export default class FieldSet extends Component {
+class FieldSet extends Component {
 
     constructor(props) {
         super(props);
@@ -34,3 +34,14 @@ export default class FieldSet extends Component {
         );
     }
 }
+
+FieldSet.propTypes = {
+
+    children: PropTypes.any,
+
+    className: PropTypes.string,
+    title: PropTypes.string
+
+};
+
+export default FieldSet;
