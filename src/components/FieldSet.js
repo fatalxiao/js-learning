@@ -12,15 +12,13 @@ class FieldSet extends Component {
 
     render() {
 
-        const {children, className, title, ...restProps} = this.props,
-
-            wrapperClassName = classNames('field-set', {
-                [className]: className
-            });
+        const {children, className, title, ...restProps} = this.props;
 
         return (
             <div {...restProps}
-                 className={wrapperClassName}>
+                 className={classNames('field-set', {
+                     [className]: className
+                 })}>
 
                 <h3 className="field-set-title">
                     {title}
