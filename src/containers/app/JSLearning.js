@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {renderRoutes} from 'react-router-config';
 
-import * as actions from 'reduxes/actions';
-
 import Nav from './nav/Nav';
 import NavTitle from './nav/title/NavTitle';
 import PageLoading from 'alcedo-ui/PageLoading';
@@ -33,8 +31,7 @@ class JSLearning extends Component {
 
                 <Nav/>
 
-                <div ref="appContent"
-                     className="app-content">
+                <div className="app-content">
 
                     <PageLoading visible={componentLoading}
                                  showStripes={false}/>
@@ -52,6 +49,7 @@ class JSLearning extends Component {
 }
 
 JSLearning.propTypes = {
+    route: PropTypes.object,
     componentLoading: PropTypes.bool
 };
 
