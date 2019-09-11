@@ -4,11 +4,11 @@ import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 
 import 'highlight.js/styles/androidstudio.css';
-import 'scss/components/Code.scss';
+import 'scss/components/Code/CodeArea.scss';
 
 hljs.registerLanguage('javascript', javascript);
 
-class Code extends Component {
+class CodeArea extends Component {
 
     constructor(props) {
         super(props);
@@ -19,15 +19,14 @@ class Code extends Component {
         const {data} = this.props;
 
         return (
-            <code className="javascript code"
-                  dangerouslySetInnerHTML={{__html: hljs.highlightAuto(data).value}}>
-            </code>
+            <code className="javascript code-area"
+                  dangerouslySetInnerHTML={{__html: hljs.highlightAuto(data).value}}/>
         );
     }
 }
 
-Code.propTypes = {
-    data: PropTypes.any
+CodeArea.propTypes = {
+    data: PropTypes.string
 };
 
-export default Code;
+export default CodeArea;
