@@ -39,6 +39,22 @@ async function exit(callback) {
 
 }
 
+/**
+ * 退出全屏
+ * @param callback
+ * @returns {Promise<void>}
+ */
+async function toggle(el, callback) {
+
+    if (!screenfull) {
+        return;
+    }
+
+    await screenfull.toggle(el);
+    callback && callback();
+
+}
+
 function fullScreen(state = initialState, action) {
     switch (action.type) {
 
@@ -71,11 +87,30 @@ function fullScreen(state = initialState, action) {
         }
 
         /**
+         * 切换全屏
+         */
+        case actionTypes.TOGGLE_FULL_SCREEN: {
+
+            toggle(action.el, action.callback);
+
+            return {
+                ...state,
+                isFullScreen: !state.isFullScreen
+            };
+
+        }
+
+        /**
          * 更新全屏
          */
         case actionTypes.UPDATE_FULL_SCREEN: {
 
-            const isFullScreen = action.isFullScreen || (screenfull ? screenfull.isFullscreen : false);
+            debugger;
+
+            const isFullScreen = action.isFullScreen != null ?
+                action.isFullScreen
+                :
+                screenfull ? screenfull.isFullscreen : false;
 
             return {
                 ...state,

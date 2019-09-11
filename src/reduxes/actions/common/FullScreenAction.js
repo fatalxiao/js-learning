@@ -38,17 +38,8 @@ export const updateFullScreen = isFullScreen => dispatch => dispatch({
  * @param callback
  * @returns {Function}
  */
-export const toggleFullScreen = (el, callback) => (dispatch, getState) => {
-    if (getState().fullScreen.isFullScreen) {
-        dispatch({
-            type: types.EXIT_FULL_SCREEN,
-            callback
-        });
-    } else {
-        dispatch({
-            type: types.REQUEST_FULL_SCREEN,
-            el,
-            callback
-        });
-    }
-};
+export const toggleFullScreen = (el, callback) => dispatch => dispatch({
+    type: types.TOGGLE_FULL_SCREEN,
+    el,
+    callback
+});
