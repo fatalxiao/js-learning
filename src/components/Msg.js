@@ -54,13 +54,16 @@ class Msg extends Component {
 }
 
 Msg.propTypes = {
+
+    children: PropTypes.any,
+
     className: PropTypes.string,
     type: PropTypes.oneOf(Util.enumerateValue(Msg.Type)),
     hasIcon: PropTypes.bool
+
 };
 
 Msg.defaultProps = {
-    className: '',
     type: Msg.Type.INFO,
     hasIcon: true
 };
