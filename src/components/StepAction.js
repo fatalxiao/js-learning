@@ -7,7 +7,7 @@ import Theme from 'alcedo-ui/Theme';
 
 import 'scss/components/StepAction.scss';
 
-export default class StepAction extends Component {
+class StepAction extends Component {
 
     constructor(props) {
         super(props);
@@ -54,3 +54,5 @@ StepAction.defaultProps = {
     isFirst: false,
     isLast: false
 };
+
+export default StepAction;
