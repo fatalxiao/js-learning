@@ -16,10 +16,14 @@ class LongestIncreaseSequence extends Component {
     render() {
         return (
             <Fragment>
-                <Code value={LongestIncreaseSequenceCode}/>
-                <Code value={LongestIncreaseSequenceRecursionCode}/>
-                <Code value={LongestIncreaseSequenceRecursionAdvancedCode}/>
-                <Code value={LongestIncreaseSequenceRecursionAdvancedWithCacheCode}/>
+                <Code title="1. 最长上升序列"
+                      value={LongestIncreaseSequenceCode}/>
+                <Code title="2. 最长上升序列递归实现"
+                      value={LongestIncreaseSequenceRecursionCode}/>
+                <Code title="3. 最长上升序列递归实现，改进版，传递索引"
+                      value={LongestIncreaseSequenceRecursionAdvancedCode}/>
+                <Code title="4. 最长上升序列递归实现，改进版，传递索引，并添加缓存"
+                      value={LongestIncreaseSequenceRecursionAdvancedWithCacheCode}/>
             </Fragment>
         );
     }

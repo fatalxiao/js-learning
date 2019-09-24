@@ -1,3 +1,7 @@
+@import '../../common.scss';
+
 .code {
-    position: relative;
+    .code-content {
+        position: relative;
+    }
 }

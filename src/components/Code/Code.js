@@ -5,7 +5,8 @@ import {bindActionCreators} from 'redux';
 
 import * as actions from 'reduxes/actions';
 
-import CodeEditor from './CodeEditor';
+import Title from './CodeTitle';
+import Editor from './CodeEditor';
 import Toolbar from './CodeToolbar';
 
 import ComponentUtil from 'vendors/ComponentUtil';
@@ -51,17 +52,27 @@ class Code extends Component {
 
     render() {
 
-        const {value} = this.state;
+        const {title} = this.props,
+            {value} = this.state;
 
         return (
-            <div ref={this.wrapper}
-                 className="code">
+            <div className="code">
 
-                <CodeEditor value={value}
+                {
+                    title ?
+                        <Title data={title}/>
+                        :
+                        null
+                }
+
+                <div ref={this.wrapper}
+                     className="code-content">
+                    <Editor value={value}
                             onChange={this.handleChange}/>
-
-                <Toolbar value={value}
-                         onToggleFullScreen={this.toggleFullScreen}/>
+                    <Toolbar value={value}
+                             wrapperEl={this.wrapperEl}
+                             onToggleFullScreen={this.toggleFullScreen}/>
+                </div>
 
             </div>
         );
@@ -71,6 +82,7 @@ class Code extends Component {
 
 Code.propTypes = {
 
+    title: PropTypes.any,
     value: PropTypes.any,
 
     toggleFullScreen: PropTypes.func

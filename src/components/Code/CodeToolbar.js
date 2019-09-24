@@ -14,12 +14,14 @@ class CodeToolbar extends Component {
 
     render() {
 
-        const {value, onToggleFullScreen} = this.props;
+        const {value, wrapperEl, onToggleFullScreen} = this.props;
 
         return (
             <div className="code-toolbar">
-                <RunIcon value={value}/>
-                <FullScreenIcon onToggleFullScreen={onToggleFullScreen}/>
+                <RunIcon value={value}
+                         wrapperEl={wrapperEl}/>
+                <FullScreenIcon wrapperEl={wrapperEl}
+                                onToggleFullScreen={onToggleFullScreen}/>
             </div>
         );
 
@@ -28,6 +30,7 @@ class CodeToolbar extends Component {
 
 CodeToolbar.propTypes = {
     value: PropTypes.string,
+    wrapperEl: PropTypes.object,
     onToggleFullScreen: PropTypes.func
 };
 

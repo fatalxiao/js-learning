@@ -23,7 +23,7 @@ class CodeArea extends Component {
                        mode="javascript"
                        theme="monokai"
                        width="100%"
-                       height={isFullScreen ? '100%' : value.split(/\r?\n/).length * 19}
+                       height={isFullScreen ? '100%' : value.split(/\r?\n/).length * 19 + 'px'}
                        value={value}
                        fontSize={14}
                        showPrintMargin={false}
