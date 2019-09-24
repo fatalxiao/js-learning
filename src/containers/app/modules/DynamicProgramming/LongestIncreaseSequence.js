@@ -1,5 +1,6 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
+import Section from 'components/Section';
 import Code from 'components/Code/Code';
 
 import LongestIncreaseSequenceRecursionCode from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequenceRecursion';
@@ -15,8 +16,7 @@ class LongestIncreaseSequence extends Component {
 
     render() {
         return (
-            <Fragment>
-                <h1>最长上升序列</h1>
+            <Section title="最长上升序列">
                 <Code title="1. 递归实现"
                       value={LongestIncreaseSequenceRecursionCode}/>
                 <Code title="2. 递归实现，改进版，传递索引"
@@ -25,7 +25,7 @@ class LongestIncreaseSequence extends Component {
                       value={LongestIncreaseSequenceRecursionAdvancedWithCacheCode}/>
                 <Code title="4. 动态规划实现"
                       value={LongestIncreaseSequenceCode}/>
-            </Fragment>
+            </Section>
         );
     }
 }

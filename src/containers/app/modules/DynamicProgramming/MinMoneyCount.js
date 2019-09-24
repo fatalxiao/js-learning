@@ -1,5 +1,6 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
+import Section from 'components/Section';
 import Code from 'components/Code/Code';
 
 import MinMoneyCountRecursionCode from '!!raw-loader!modules/DynamicProgramming/MinMoneyCount/MinMoneyCountRecursion';
@@ -14,15 +15,14 @@ class MinMoneyCount extends Component {
 
     render() {
         return (
-            <Fragment>
-                <h1>用最少的钞票</h1>
+            <Section title="用最少的钞票">
                 <Code title="1. 递归实现"
                       value={MinMoneyCountRecursionCode}/>
                 <Code title="2. 递归实现，改进版，传递索引"
                       value={MinMoneyCountRecursionWithCacheCode}/>
                 <Code title="3. 递归实现，改进版，传递索引，并添加缓存"
                       value={MinMoneyCountCode}/>
-            </Fragment>
+            </Section>
         );
     }
 }
