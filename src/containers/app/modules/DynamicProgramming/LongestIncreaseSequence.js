@@ -2,10 +2,10 @@ import React, {Component, Fragment} from 'react';
 
 import Code from 'components/Code/Code';
 
-import LongestIncreaseSequenceCode from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequence';
 import LongestIncreaseSequenceRecursionCode from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequenceRecursion';
 import LongestIncreaseSequenceRecursionAdvancedCode from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequenceRecursionAdvanced';
 import LongestIncreaseSequenceRecursionAdvancedWithCacheCode from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequenceRecursionAdvancedWithCache';
+import LongestIncreaseSequenceCode from '!!raw-loader!modules/DynamicProgramming/LongestIncreaseSequence/LongestIncreaseSequence';
 
 class LongestIncreaseSequence extends Component {
 
