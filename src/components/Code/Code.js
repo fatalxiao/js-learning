@@ -20,9 +20,9 @@ class Code extends Component {
         super(props);
 
         this.wrapper = createRef();
-        this.wrapperEl = null;
 
         this.state = {
+            wrapperEl: null,
             value: props.value || ''
         };
 
@@ -36,11 +36,13 @@ class Code extends Component {
 
     toggleFullScreen = () => {
         const {toggleFullScreen} = this.props;
-        toggleFullScreen && toggleFullScreen(this.wrapperEl);
+        toggleFullScreen && toggleFullScreen(this.state.wrapperEl);
     };
 
     componentDidMount() {
-        this.wrapperEl = this.wrapper && this.wrapper.current;
+        this.setState({
+            wrapperEl: this.wrapper && this.wrapper.current
+        });
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -53,7 +55,7 @@ class Code extends Component {
     render() {
 
         const {title} = this.props,
-            {value} = this.state;
+            {wrapperEl, value} = this.state;
 
         return (
             <div className="code">
@@ -70,7 +72,7 @@ class Code extends Component {
                     <Editor value={value}
                             onChange={this.handleChange}/>
                     <Toolbar value={value}
-                             wrapperEl={this.wrapperEl}
+                             wrapperEl={wrapperEl}
                              onToggleFullScreen={this.toggleFullScreen}/>
                 </div>
 

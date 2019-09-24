@@ -19,7 +19,8 @@ class CodeFullScreenIcon extends Component {
         const {isFullScreen, wrapperEl, onToggleFullScreen} = this.props;
 
         return (
-            <TipProvider tipContent="Full Screen"
+            <TipProvider position={TipProvider.Position.BOTTOM_RIGHT}
+                         tipContent="Full Screen"
                          parentEl={wrapperEl}>
                 <IconButton className="code-toolbar-icon code-full-screen-icon"
                             iconCls={isFullScreen ? 'icon-resize-100' : 'icon-resize-full-screen'}
