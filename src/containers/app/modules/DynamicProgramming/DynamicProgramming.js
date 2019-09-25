@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import LongestIncreaseSequence from './LongestIncreaseSequence';
 import MinMoneyCount from './MinMoneyCount';
+import PackageMaxValue from './PackageMaxValue';
 
 class DynamicProgramming extends Component {
 
@@ -14,6 +15,7 @@ class DynamicProgramming extends Component {
             <div>
                 <LongestIncreaseSequence/>
                 <MinMoneyCount/>
+                <PackageMaxValue/>
             </div>
         );
     }

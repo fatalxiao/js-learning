@@ -15,7 +15,7 @@ class PackageMaxValue extends Component {
 
     render() {
         return (
-            <Section title="用最少的钞票">
+            <Section title="背包问题">
                 <Code title="1. 递归实现"
                       value={PackageMaxValueRecursionCode}/>
                 <Code title="2. 递归实现，并带缓存"
