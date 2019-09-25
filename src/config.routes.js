@@ -10,10 +10,10 @@ export function configureRoutes(store) {
             component: ac(() => import('containers/app/JSLearning'), store),
             routes: [{
                 path: '/js-learning/dynamic-programming',
-                component: ac(() => import('containers/app/modules/DynamicProgramming/DynamicProgramming'), store)
+                component: ac(() => import('containers/app/modules/DynamicProgramming'), store)
             }, {
                 path: '/js-learning/react-suspense',
-                component: ac(() => import('modules/ReactSuspense'), store)
+                component: ac(() => import('containers/app/modules/ReactSuspense'), store)
             }]
         }]
     }];

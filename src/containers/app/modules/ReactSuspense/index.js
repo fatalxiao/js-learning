@@ -1,7 +1,7 @@
 import React from 'react';
 
-import HOC from './hoc';
-import LazySuspense from './lazySuspense';
+import HOC from 'modules/ReactSuspense/hoc';
+import LazySuspense from 'modules/ReactSuspense/lazySuspense';
 
 function ReactSuspense() {
     return (
