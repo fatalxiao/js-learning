@@ -1,5 +1,5 @@
 /**
- * 背包问题
+ * 背包问题动态规划实现
  * @param items
  * @param size
  * @returns {Array}

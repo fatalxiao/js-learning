@@ -18,9 +18,9 @@ class MinMoneyCount extends Component {
             <Section title="用最少的钞票">
                 <Code title="1. 递归实现"
                       value={MinMoneyCountRecursionCode}/>
-                <Code title="2. 递归实现，改进版，传递索引"
+                <Code title="2. 递归实现，并带缓存"
                       value={MinMoneyCountRecursionWithCacheCode}/>
-                <Code title="3. 递归实现，改进版，传递索引，并添加缓存"
+                <Code title="3. 动态规划实现"
                       value={MinMoneyCountCode}/>
             </Section>
         );

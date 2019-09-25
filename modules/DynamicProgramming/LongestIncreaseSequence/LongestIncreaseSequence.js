@@ -1,5 +1,5 @@
 /**
- * 最长上升序列
+ * 最长上升序列动态规划实现
  * @param list
  * @returns {number}
  * @constructor

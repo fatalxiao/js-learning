@@ -1,5 +1,5 @@
 /**
- * 用最少的钞票
+ * 用最少的钞票动态规划实现
  * @param moneySet
  * @param value
  * @returns {*}

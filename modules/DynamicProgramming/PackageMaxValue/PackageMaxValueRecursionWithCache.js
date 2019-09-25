@@ -1,5 +1,5 @@
 /**
- * 背包问题递归版本，并带缓存
+ * 背包问题递归实现，并带缓存
  * @param restItems
  * @param restSize
  * @returns {Array}

@@ -1,5 +1,5 @@
 /**
- * 背包问题递归版本
+ * 背包问题递归实现
  * @param restItems
  * @param restSize
  * @returns {Array}

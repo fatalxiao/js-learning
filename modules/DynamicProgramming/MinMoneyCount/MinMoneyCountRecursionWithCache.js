@@ -1,5 +1,5 @@
 /**
- * 用最少的钞票递归版，并带缓存
+ * 用最少的钞票递归实现，并带缓存
  * @param set
  * @param value
  * @returns {*|number}
