@@ -3,6 +3,9 @@
  * @author liangxiaojun(liangxiaojun@derbysoft.com)
  */
 
+import kebabCase from 'lodash/kebabCase';
+import modules from './config.modules';
+
 const rootSymbol = 'root';
 
 function sitemap(state) {
@@ -11,13 +14,10 @@ function sitemap(state) {
         children: [{
             name: 'JS Learning',
             route: '/js-learning',
-            children: [{
-                name: 'Dynamic Programming',
-                route: '/js-learning/dynamic-programming'
-            }, {
-                name: 'React Suspense',
-                route: '/js-learning/react-suspense'
-            }]
+            children: modules.map(module => ({
+                name: module.name,
+                route: `/js-learning/${kebabCase(module.name)}`
+            }))
         }]
     };
 }
