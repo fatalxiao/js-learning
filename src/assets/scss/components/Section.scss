@@ -1,8 +1,40 @@
 @import '../common.scss';
 
 .section {
+    padding: 32px;
+    margin: 32px 0;
+    background: $theme-field-bg;
+    border-radius: $theme-border-radius;
+
     .section-title {
+        position: relative;
+        box-sizing: border-box;
+        margin: 0;
         font-size: 32px;
-        margin-top: 80px;
+
+        .section-toggle-buton {
+            float: right;
+            font-size: 24px;
+            margin: 4px;
+            transition: transform $theme-transition-duration ease-in-out;
+        }
+    }
+
+    .section-content {
+        display: none;
+        margin-top: 24px;
+    }
+
+    &.expand {
+        //border-left: 4px solid $theme-label;
+        //padding-left: 12px;
+
+        .section-toggle-buton {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            display: block;
+        }
     }
 }
