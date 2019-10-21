@@ -14,6 +14,9 @@ export function configureRoutes(store) {
             }, {
                 path: '/js-learning/react-suspense',
                 component: ac(() => import('containers/app/modules/ReactSuspense'), store)
+            }, {
+                path: '/js-learning/kmp',
+                component: ac(() => import('containers/app/modules/KMP'), store)
             }]
         }]
     }];
