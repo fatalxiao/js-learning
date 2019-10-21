@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 
-import Demo from './KMPDemo';
+import Demo from './demo/KMPDemo';
 import SourceCode from './SourceCode';
 
 class KMP extends Component {

@@ -13,7 +13,7 @@ class SourceCode extends Component {
 
     render() {
         return (
-            <Section title="KMP实现源码">
+            <Section title="KMP 实现源码">
                 <Code value={KMPCode}/>
             </Section>
         );
