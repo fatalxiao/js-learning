@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import LongestIncreaseSequence from './LongestIncreaseSequence';
 import MinMoneyCount from './MinMoneyCount';
@@ -12,11 +12,11 @@ class Index extends Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
                 <LongestIncreaseSequence/>
                 <MinMoneyCount/>
                 <PackageMaxValue/>
-            </div>
+            </Fragment>
         );
     }
 }
