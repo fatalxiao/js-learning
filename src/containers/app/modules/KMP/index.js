@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import SourceCode from './SourceCode';
 
@@ -10,9 +10,9 @@ class Index extends Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
                 <SourceCode/>
-            </div>
+            </Fragment>
         );
     }
 }
