@@ -49,7 +49,7 @@ class Section extends Component {
                 <h1 className="section-title">
                     {title}
                     <IconButton className="section-toggle-buton"
-                                iconCls="icon-chevron-thin-down"
+                                iconCls="icon-chevron-down"
                                 onClick={this.toggle}/>
                 </h1>
 

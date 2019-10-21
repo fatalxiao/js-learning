@@ -1,7 +1,7 @@
 @import '../common.scss';
 
 .section {
-    padding: 32px;
+    padding: 40px;
     margin: 32px 0;
     background: $theme-field-bg;
     border-radius: $theme-border-radius;
@@ -16,6 +16,7 @@
             float: right;
             font-size: 24px;
             margin: 4px;
+            border: 1px solid $theme-border;
             transition: transform $theme-transition-duration ease-in-out;
         }
     }
@@ -26,11 +27,18 @@
     }
 
     &.expand {
-        //border-left: 4px solid $theme-label;
-        //padding-left: 12px;
+        border-left: $theme-border-radius solid $theme-highlight;
+        padding-left: 36px;
 
-        .section-toggle-buton {
-            transform: rotate(180deg);
+        .section-title {
+            color: $theme-highlight;
+
+            .section-toggle-buton {
+                color: #fff;
+                background: $theme-highlight;
+                border-color: $theme-highlight;
+                transform: rotate(180deg);
+            }
         }
 
         .section-content {
