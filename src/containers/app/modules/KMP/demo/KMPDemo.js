@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
+import PropTypes from 'prop-types';
 
 import RaisedButton from 'alcedo-ui/RaisedButton';
 import KMPDemoStringGroup from './KMPDemoStringGroup';
 
-import KMPDemoClass from 'modules/KMP/demo';
+import KMP4Demo from 'modules/KMP/KMP4Demo';
 
 class KMPDemo extends Component {
 
@@ -11,11 +12,8 @@ class KMPDemo extends Component {
 
         super(props);
 
-        this.txt = 'aaaaaaab';
-        this.pat = 'aaab';
-
-        this.kmp = new KMPDemoClass(this.pat);
-        this.step = this.kmp.search(this.txt);
+        this.kmp = new KMP4Demo(props.pat);
+        this.step = this.kmp.search(props.txt);
 
         this.state = {
             currentState: null
@@ -24,7 +22,7 @@ class KMPDemo extends Component {
     }
 
     init = () => {
-        this.step = this.kmp.search(this.txt);
+        this.step = this.kmp.search(this.props.txt);
         this.setState({
             currentState: null
         });
@@ -38,20 +36,21 @@ class KMPDemo extends Component {
 
     render() {
 
-        const {currentState} = this.state;
+        const {txt, pat} = this.props,
+            {currentState} = this.state;
 
         return (
             <Fragment>
 
-                <KMPDemoStringGroup txt={this.txt}
-                                    pat={this.pat}
+                <KMPDemoStringGroup txt={txt}
+                                    pat={pat}
                                     currentState={currentState && currentState.value}/>
 
                 <RaisedButton value="Reset"
                               onClick={this.init}/>
 
                 <RaisedButton value="Next"
-                              disabled={currentState && currentState.value && currentState.value[1] === this.pat.length}
+                              disabled={currentState && currentState.value && currentState.value[1] === pat.length}
                               onClick={this.next}/>
 
             </Fragment>
@@ -59,5 +58,10 @@ class KMPDemo extends Component {
 
     }
 }
+
+KMPDemo.propTypes = {
+    txt: PropTypes.string,
+    pat: PropTypes.string
+};
 
 export default KMPDemo;
