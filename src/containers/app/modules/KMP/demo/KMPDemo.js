@@ -49,9 +49,11 @@ class KMPDemo extends Component {
                                     currentState={currentState && currentState.value}/>
 
                 <RaisedButton value="Reset"
+                              iconCls="icon-ccw"
                               onClick={this.init}/>
 
                 <RaisedButton value="Next"
+                              rightIconCls="icon-controller-play"
                               disabled={currentState && currentState.value && currentState.value[1] === pat.length}
                               onClick={this.next}/>
 
