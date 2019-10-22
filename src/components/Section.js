@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import eventOn from 'dom-helpers/events/on';
+import eventOff from 'dom-helpers/events/off';
 
 import IconButton from 'alcedo-ui/IconButton';
 
@@ -14,8 +16,11 @@ class Section extends Component {
 
         super(props);
 
+        this.section = createRef();
+
         this.state = {
-            collapsed: props.collapsed
+            collapsed: props.collapsed,
+            isTitleFixed: false
         };
 
     }
@@ -29,6 +34,29 @@ class Section extends Component {
         });
     };
 
+    handleScroll = () => {
+
+        if (!this.section || !this.section.current) {
+            return;
+        }
+
+        const isTitleFixed = this.section.current.getBoundingClientRect().top <= 0;
+        if (this.state.isTitleFixed !== isTitleFixed) {
+            this.setState({
+                isTitleFixed
+            });
+        }
+
+    };
+
+    componentDidMount() {
+        eventOn(document, 'scroll', this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        eventOff(document, 'scroll', this.handleScroll);
+    }
+
     static getDerivedStateFromProps(props, state) {
         return {
             prevProps: props,
@@ -39,12 +67,14 @@ class Section extends Component {
     render() {
 
         const {children, title} = this.props,
-            {collapsed} = this.state;
+            {collapsed, isTitleFixed} = this.state;
 
         return (
-            <section className={classNames('section', {
-                expand: !collapsed
-            })}>
+            <section ref={this.section}
+                     className={classNames('section', {
+                         expand: !collapsed,
+                         'title-fixed': isTitleFixed
+                     })}>
 
                 <h1 className="section-title">
                     {title}

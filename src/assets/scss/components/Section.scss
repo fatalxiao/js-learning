@@ -1,16 +1,21 @@
 @import '../common.scss';
 
 .section {
+    position: relative;
     padding: 40px;
     margin: 32px 0;
     background: $theme-field-bg;
     border-radius: $theme-border-radius;
 
     .section-title {
-        position: relative;
+        @include float-fix;
+        position: absolute;
+        top: 40px;
+        width: calc(100% - 80px);
         box-sizing: border-box;
         margin: 0;
         font-size: 32px;
+        background: $theme-field-bg;
 
         .section-toggle-buton {
             float: right;
@@ -23,7 +28,7 @@
 
     .section-content {
         display: none;
-        margin-top: 24px;
+        margin-top: 72px;
     }
 
     &.expand {
@@ -43,6 +48,14 @@
 
         .section-content {
             display: block;
+        }
+    }
+
+    &.title-fixed {
+        .section-title {
+            position: fixed;
+            top: 0;
+            z-index: 99;
         }
     }
 }
