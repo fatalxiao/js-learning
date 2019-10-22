@@ -71,7 +71,7 @@ class Section extends Component {
         this.setState({
             isTitleFixed,
             isTitleFixedBottom: rect.height + rect.top <= 96,
-            width: isTitleFixed ? rect.width : null
+            width: isTitleFixed ? rect.width - 2 : null
         });
 
     };
@@ -105,14 +105,11 @@ class Section extends Component {
                      })}>
 
                 <h1 className="section-title"
-                    style={{width}}>
-                    <span className="section-title-text"
-                          onClick={this.toggle}>
-                        {title}
-                    </span>
+                    style={{width}}
+                    onClick={this.toggle}>
+                    {title}
                     <IconButton className="section-toggle-buton"
-                                iconCls="icon-chevron-down"
-                                onClick={this.toggle}/>
+                                iconCls="icon-chevron-down"/>
                 </h1>
 
                 <div className="section-content">
