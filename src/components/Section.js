@@ -51,12 +51,11 @@ class Section extends Component {
 
         const rect = this.section.current.getBoundingClientRect(),
             isTitleFixed = rect.top <= 0;
-        if (!this.state.collapsed && this.state.isTitleFixed !== isTitleFixed) {
-            this.setState({
-                isTitleFixed,
-                width: isTitleFixed ? rect.width : null
-            });
-        }
+        this.setState({
+            isTitleFixed,
+            isTitleFixedBottom: rect.height + rect.top <= 96,
+            width: isTitleFixed ? rect.width : null
+        });
 
     };
 
@@ -78,13 +77,14 @@ class Section extends Component {
     render() {
 
         const {children, title} = this.props,
-            {collapsed, isTitleFixed, width} = this.state;
+            {collapsed, isTitleFixed, isTitleFixedBottom, width} = this.state;
 
         return (
             <section ref={this.section}
                      className={classNames('section', {
                          expand: !collapsed,
-                         'title-fixed': isTitleFixed
+                         'title-fixed': isTitleFixed,
+                         'title-fixed-bottom': isTitleFixedBottom
                      })}>
 
                 <h1 className="section-title"

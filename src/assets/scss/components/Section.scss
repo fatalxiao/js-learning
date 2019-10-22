@@ -78,4 +78,12 @@
             z-index: 5;
         }
     }
+
+    &.title-fixed-bottom {
+        .section-title {
+            position: absolute;
+            top: unset;
+            bottom: 0;
+        }
+    }
 }
