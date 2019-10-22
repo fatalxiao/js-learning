@@ -2,20 +2,19 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import RaisedButton from 'alcedo-ui/RaisedButton';
-import KMPDemoStringGroup from './KMPDemoStringGroup';
+import DemoStringGroup from '../common/DemoStringGroup';
 
-import KMP4Demo from 'modules/KMP/KMP4Demo';
+import {search} from 'modules/KMP/BruteForce4Demo';
 
-import 'scss/containers/app/modules/KMP/demo/KMPDemo.scss';
+import 'scss/containers/app/modules/KMP/demo/bruteForceDemo/BruteForceDemo.scss';
 
-class KMPDemo extends Component {
+class BruteForceDemo extends Component {
 
     constructor(props) {
 
         super(props);
 
-        this.kmp = new KMP4Demo(props.pat);
-        this.step = this.kmp.search(props.txt);
+        this.step = search(props.txt, props.pat);
 
         this.state = {
             currentState: null
@@ -24,7 +23,7 @@ class KMPDemo extends Component {
     }
 
     init = () => {
-        this.step = this.kmp.search(this.props.txt);
+        this.step = search(this.props.txt, this.props.pat);
         this.setState({
             currentState: null
         });
@@ -41,12 +40,14 @@ class KMPDemo extends Component {
         const {txt, pat} = this.props,
             {currentState} = this.state;
 
-        return (
-            <div className="kmp-demo">
+        console.log('currentState::', currentState && currentState.value);
 
-                <KMPDemoStringGroup txt={txt}
-                                    pat={pat}
-                                    currentState={currentState && currentState.value}/>
+        return (
+            <div className="brute-force-demo">
+
+                <DemoStringGroup txt={txt}
+                                 pat={pat}
+                                 currentState={currentState && currentState.value}/>
 
                 <RaisedButton value="Reset"
                               iconCls="icon-ccw"
@@ -54,7 +55,7 @@ class KMPDemo extends Component {
 
                 <RaisedButton value="Next"
                               rightIconCls="icon-controller-play"
-                              disabled={currentState && currentState.value && currentState.value[1] === pat.length}
+                              disabled={currentState && currentState.value && currentState.value[1] === pat.length - 1}
                               onClick={this.next}/>
 
             </div>
@@ -63,9 +64,9 @@ class KMPDemo extends Component {
     }
 }
 
-KMPDemo.propTypes = {
+BruteForceDemo.propTypes = {
     txt: PropTypes.string,
     pat: PropTypes.string
 };
 
-export default KMPDemo;
+export default BruteForceDemo;

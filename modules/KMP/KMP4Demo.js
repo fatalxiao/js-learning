@@ -54,7 +54,7 @@ class KMP4Demo {
             // pat 应该转移到哪个状态？
             j = this.dp[j][txt.charCodeAt(i)];
 
-            yield [i, j];
+            yield [i, j - 1];
 
             // 如果达到终止态，返回匹配开头的索引
             if (j == patLength) {

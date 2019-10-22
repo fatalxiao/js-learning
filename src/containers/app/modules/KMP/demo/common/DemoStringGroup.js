@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import KMPDemoString from './KMPDemoString';
+import DemoString from './DemoString';
 
-import 'scss/containers/app/modules/KMP/demo/KMPDemoStringGroup.scss';
+import 'scss/containers/app/modules/KMP/demo/common/DemoStringGroup.scss';
 
-class KMPDemoStringGroup extends Component {
+class DemoStringGroup extends Component {
 
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class KMPDemoStringGroup extends Component {
 
     getPatPosition = () => {
         const {currentState} = this.props;
-        return currentState ? currentState[1] - 1 : -1;
+        return currentState ? currentState[1] : -1;
     };
 
     isTxtCharActivated = index => {
@@ -37,21 +37,21 @@ class KMPDemoStringGroup extends Component {
         const {txt, pat} = this.props;
 
         return (
-            <div className="kmp-demo-string-group">
-                <KMPDemoString title="Text"
-                               value={txt}
-                               isCharActivated={this.isTxtCharActivated}/>
-                <KMPDemoString title="Pat"
-                               value={pat}
-                               offset={this.getTextPosition() - this.getPatPosition()}
-                               isCharActivated={this.isPatCharActivated}/>
+            <div className="demo-string-group">
+                <DemoString title="Text"
+                            value={txt}
+                            isCharActivated={this.isTxtCharActivated}/>
+                <DemoString title="Pat"
+                            value={pat}
+                            offset={this.getTextPosition() - this.getPatPosition()}
+                            isCharActivated={this.isPatCharActivated}/>
             </div>
         );
 
     }
 }
 
-KMPDemoStringGroup.propTypes = {
+DemoStringGroup.propTypes = {
 
     txt: PropTypes.string,
     pat: PropTypes.string,
@@ -60,4 +60,4 @@ KMPDemoStringGroup.propTypes = {
 
 };
 
-export default KMPDemoStringGroup;
+export default DemoStringGroup;

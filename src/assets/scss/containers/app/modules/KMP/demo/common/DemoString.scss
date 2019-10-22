@@ -1,10 +1,10 @@
-@import '../../../../../common.scss';
+@import '../../../../../../common';
 
-.kmp-demo-string {
+.demo-string {
     height: 64px;
     font-size: 32px;
 
-    .kmp-demo-string-title {
+    .demo-string-title {
         display: inline-block;
         vertical-align: top;
         width: 96px;
@@ -12,11 +12,11 @@
         color: $theme-label;
     }
 
-    .kmp-demo-string-content {
+    .demo-string-content {
         display: inline-block;
         vertical-align: top;
 
-        .kmp-demo-char {
+        .demo-char {
             display: inline-block;
             width: 64px;
             height: 64px;

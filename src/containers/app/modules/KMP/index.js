@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 
-import KMPDemo from './demo/KMPDemo';
+import Demo from './demo/Demo';
 import SourceCode from './SourceCode';
 
 class KMP extends Component {
@@ -12,15 +12,8 @@ class KMP extends Component {
     render() {
         return (
             <Fragment>
-
-                <KMPDemo txt="aaaaaaab"
-                         pat="aaab"/>
-
-                <KMPDemo txt="aaacaaab"
-                         pat="aaab"/>
-
+                <Demo/>
                 <SourceCode/>
-
             </Fragment>
         );
     }
