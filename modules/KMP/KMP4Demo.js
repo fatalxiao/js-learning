@@ -39,8 +39,6 @@ class KMP4Demo {
 
         }
 
-        console.log('dp::', this.dp);
-
     }
 
     * search(txt) {
