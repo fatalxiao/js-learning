@@ -1,0 +1,29 @@
+@import '../../../../../common.scss';
+
+.kmp-demo-string {
+    height: 64px;
+    font-size: 32px;
+
+    .kmp-demo-string-title {
+        display: inline-block;
+        vertical-align: top;
+        width: 96px;
+        color: $theme-label;
+    }
+
+    .kmp-demo-string-content {
+        display: inline-block;
+        vertical-align: top;
+
+        .kmp-demo-char {
+            display: inline-block;
+            width: 64px;
+            height: 64px;
+            vertical-align: top;
+
+            &.activated {
+                color: $theme-highlight;
+            }
+        }
+    }
+}
