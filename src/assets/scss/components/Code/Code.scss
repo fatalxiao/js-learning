@@ -1,6 +1,9 @@
 @import '../../common.scss';
 
 .code {
+    @include float-fix;
+    margin-top: 16px;
+
     .code-content {
         position: relative;
     }
