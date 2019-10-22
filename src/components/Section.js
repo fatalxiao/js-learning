@@ -7,6 +7,7 @@ import eventOff from 'dom-helpers/events/off';
 import IconButton from 'alcedo-ui/IconButton';
 
 import ComponentUtil from 'vendors/ComponentUtil';
+import Event from 'vendors/Event';
 
 import 'scss/components/Section.scss';
 
@@ -20,7 +21,9 @@ class Section extends Component {
 
         this.state = {
             collapsed: props.collapsed,
-            isTitleFixed: false
+            isTitleFixed: false,
+            isTitleFixedBottom: false,
+            width: null
         };
 
     }
@@ -29,9 +32,22 @@ class Section extends Component {
      * toggle section collapse / expand
      */
     toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
+
+        const {collapsed} = this.state,
+            state = {
+                collapsed: !collapsed
+            };
+
+        if (!collapsed) {
+            state.isTitleFixed = false;
+            state.isTitleFixedBottom = false;
+            state.width = null;
+        }
+
+        this.setState(state, () => {
+            Event.fireEvent(document, 'scroll');
         });
+
     };
 
     handleScroll = () => {
@@ -44,6 +60,7 @@ class Section extends Component {
         if (this.state.collapsed && this.state.isTitleFixed) {
             this.setState({
                 isTitleFixed: false,
+                isTitleFixedBottom: false,
                 width: null
             });
             return;
@@ -89,7 +106,10 @@ class Section extends Component {
 
                 <h1 className="section-title"
                     style={{width}}>
-                    {title}
+                    <span className="section-title-text"
+                          onClick={this.toggle}>
+                        {title}
+                    </span>
                     <IconButton className="section-toggle-buton"
                                 iconCls="icon-chevron-down"
                                 onClick={this.toggle}/>

@@ -20,6 +20,10 @@
         font-size: 32px;
         background: $theme-field-bg;
 
+        .section-title-text {
+            cursor: pointer;
+        }
+
         .section-toggle-buton {
             float: right;
             font-size: 24px;
