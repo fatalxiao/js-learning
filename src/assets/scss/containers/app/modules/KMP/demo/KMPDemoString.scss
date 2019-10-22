@@ -8,6 +8,7 @@
         display: inline-block;
         vertical-align: top;
         width: 96px;
+        line-height: 64px;
         color: $theme-label;
     }
 
@@ -19,6 +20,7 @@
             display: inline-block;
             width: 64px;
             height: 64px;
+            line-height: 64px;
             vertical-align: top;
 
             &.activated {

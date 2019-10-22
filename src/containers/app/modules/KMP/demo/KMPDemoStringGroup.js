@@ -1,7 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import KMPDemoString from './KMPDemoString';
+
+import 'scss/containers/app/modules/KMP/demo/KMPDemoStringGroup.scss';
 
 class KMPDemoStringGroup extends Component {
 
@@ -35,7 +37,7 @@ class KMPDemoStringGroup extends Component {
         const {txt, pat} = this.props;
 
         return (
-            <Fragment>
+            <div className="kmp-demo-string-group">
                 <KMPDemoString title="Text"
                                value={txt}
                                isCharActivated={this.isTxtCharActivated}/>
@@ -43,7 +45,7 @@ class KMPDemoStringGroup extends Component {
                                value={pat}
                                offset={this.getTextPosition() - this.getPatPosition()}
                                isCharActivated={this.isPatCharActivated}/>
-            </Fragment>
+            </div>
         );
 
     }

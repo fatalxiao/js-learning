@@ -1,10 +1,12 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import RaisedButton from 'alcedo-ui/RaisedButton';
 import KMPDemoStringGroup from './KMPDemoStringGroup';
 
 import KMP4Demo from 'modules/KMP/KMP4Demo';
+
+import 'scss/containers/app/modules/KMP/demo/KMPDemo.scss';
 
 class KMPDemo extends Component {
 
@@ -40,7 +42,7 @@ class KMPDemo extends Component {
             {currentState} = this.state;
 
         return (
-            <Fragment>
+            <div className="kmp-demo">
 
                 <KMPDemoStringGroup txt={txt}
                                     pat={pat}
@@ -53,7 +55,7 @@ class KMPDemo extends Component {
                               disabled={currentState && currentState.value && currentState.value[1] === pat.length}
                               onClick={this.next}/>
 
-            </Fragment>
+            </div>
         );
 
     }
