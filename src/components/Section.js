@@ -99,6 +99,8 @@ class Section extends Component {
                     {children}
                 </div>
 
+                <div className="section-expand-border"></div>
+
             </section>
         );
     }

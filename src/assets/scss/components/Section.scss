@@ -35,8 +35,18 @@
         margin-top: 96px;
     }
 
+    .section-expand-border {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: $theme-highlight;
+        z-index: 6;
+    }
+
     &.expand {
-        border-left: $theme-border-radius solid $theme-highlight;
 
         .section-title {
             position: absolute;
@@ -54,15 +64,18 @@
         .section-content {
             display: block;
         }
+
+        .section-expand-border {
+            display: block;
+        }
     }
 
     &.title-fixed {
         .section-title {
             position: fixed;
             top: 0;
-
             border-bottom: 1px solid $theme-border;
-            z-index: 99;
+            z-index: 5;
         }
     }
 }
