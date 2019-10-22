@@ -40,10 +40,21 @@ class Section extends Component {
             return;
         }
 
-        const isTitleFixed = this.section.current.getBoundingClientRect().top <= 0;
-        if (this.state.isTitleFixed !== isTitleFixed) {
+        // if collapsed, set fixed false
+        if (this.state.collapsed && this.state.isTitleFixed) {
             this.setState({
-                isTitleFixed
+                isTitleFixed: false,
+                width: null
+            });
+            return;
+        }
+
+        const rect = this.section.current.getBoundingClientRect(),
+            isTitleFixed = rect.top <= 0;
+        if (!this.state.collapsed && this.state.isTitleFixed !== isTitleFixed) {
+            this.setState({
+                isTitleFixed,
+                width: isTitleFixed ? rect.width : null
             });
         }
 
@@ -67,7 +78,7 @@ class Section extends Component {
     render() {
 
         const {children, title} = this.props,
-            {collapsed, isTitleFixed} = this.state;
+            {collapsed, isTitleFixed, width} = this.state;
 
         return (
             <section ref={this.section}
@@ -76,7 +87,8 @@ class Section extends Component {
                          'title-fixed': isTitleFixed
                      })}>
 
-                <h1 className="section-title">
+                <h1 className="section-title"
+                    style={{width}}>
                     {title}
                     <IconButton className="section-toggle-buton"
                                 iconCls="icon-chevron-down"

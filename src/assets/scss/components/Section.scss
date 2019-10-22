@@ -1,18 +1,21 @@
 @import '../common.scss';
 
 .section {
+    @include float-fix;
     position: relative;
-    padding: 40px;
+    min-height: 96px;
     margin: 32px 0;
     background: $theme-field-bg;
     border-radius: $theme-border-radius;
+    overflow: hidden;
 
     .section-title {
         @include float-fix;
-        position: absolute;
-        top: 40px;
-        width: calc(100% - 80px);
         box-sizing: border-box;
+        width: 100%;
+        height: 96px;
+        line-height: 96px;
+        padding: 0 40px;
         margin: 0;
         font-size: 32px;
         background: $theme-field-bg;
@@ -20,7 +23,7 @@
         .section-toggle-buton {
             float: right;
             font-size: 24px;
-            margin: 4px;
+            margin: 28px 4px;
             border: 1px solid $theme-border;
             transition: transform $theme-transition-duration ease-in-out;
         }
@@ -28,14 +31,16 @@
 
     .section-content {
         display: none;
-        margin-top: 72px;
+        padding: 0 40px 40px;
+        margin-top: 96px;
     }
 
     &.expand {
         border-left: $theme-border-radius solid $theme-highlight;
-        padding-left: 36px;
 
         .section-title {
+            position: absolute;
+            top: 0;
             color: $theme-highlight;
 
             .section-toggle-buton {
@@ -55,6 +60,8 @@
         .section-title {
             position: fixed;
             top: 0;
+
+            border-bottom: 1px solid $theme-border;
             z-index: 99;
         }
     }
