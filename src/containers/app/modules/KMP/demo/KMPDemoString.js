@@ -22,7 +22,7 @@ class KMPDemoString extends Component {
                 </div>
 
                 <div className="kmp-demo-string-content"
-                     style={{paddingLeft: offset * 64}}>
+                     style={{paddingLeft: offset && !isNaN(offset) ? offset * 64 : null}}>
                     {
                         value.split('').map((char, index) =>
                             <div key={index}
