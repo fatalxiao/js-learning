@@ -18,6 +18,16 @@ function removeEvent(el, type, cb) {
     }
 }
 
+function fireEvent(el, event) {
+    if (document.createEventObject) {
+        return el.fireEvent('on' + event, document.createEventObject());
+    } else {
+        const evt = document.createEvent('HTMLEvents');
+        evt.initEvent(event, true, true);
+        return !el.dispatchEvent(evt);
+    }
+}
+
 function triggerPopupEventHandle(el, triggerEl, popupEl, currentVisible) {
 
     let flag = true;
@@ -74,6 +84,7 @@ function preventContainerScroll(e) {
 export default {
     addEvent,
     removeEvent,
+    fireEvent,
     triggerPopupEventHandle,
     preventContainerScroll
 };
