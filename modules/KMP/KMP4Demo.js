@@ -1,7 +1,7 @@
 /**
  * Knuth Morris Pratt (KMP) 算法
  */
-class KMPDemo {
+class KMP4Demo {
 
     constructor(pat) {
 
@@ -71,4 +71,4 @@ class KMPDemo {
     }
 }
 
-export default KMPDemo;
+export default KMP4Demo;
