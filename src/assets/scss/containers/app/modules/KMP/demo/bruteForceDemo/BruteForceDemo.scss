@@ -1,7 +1,12 @@
-@import '../../../../../../common';
+@import '../../../../../../common.scss';
 
 .brute-force-demo {
-    margin-top: 32px;
+    margin-top: 64px;
+
+    .brute-force-demo-title {
+        font-size: 24px;
+        font-weight: 700;
+    }
 
     .raised-button {
         margin-right: 16px;

@@ -45,6 +45,10 @@ class BruteForceDemo extends Component {
         return (
             <div className="brute-force-demo">
 
+                <div className="brute-force-demo-title">
+                    暴力算法
+                </div>
+
                 <DemoStringGroup txt={txt}
                                  pat={pat}
                                  currentState={currentState && currentState.value}/>
