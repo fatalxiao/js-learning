@@ -40,14 +40,12 @@ class BruteForceDemo extends Component {
         const {txt, pat} = this.props,
             {currentState} = this.state;
 
-        console.log('currentState::', currentState && currentState.value);
-
         return (
             <div className="brute-force-demo">
 
-                <div className="brute-force-demo-title">
+                <h2 className="brute-force-demo-title">
                     暴力算法
-                </div>
+                </h2>
 
                 <DemoStringGroup txt={txt}
                                  pat={pat}

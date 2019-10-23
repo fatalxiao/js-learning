@@ -44,9 +44,9 @@ class KMPDemo extends Component {
         return (
             <div className="kmp-demo">
 
-                <div className="kmp-demo-title">
+                <h2 className="kmp-demo-title">
                     KMP 算法
-                </div>
+                </h2>
 
                 <DemoStringGroup txt={txt}
                                  pat={pat}

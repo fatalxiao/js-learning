@@ -1,6 +1,7 @@
 @import '../../../../../../common.scss';
 
 .brute-force-demo {
+    @include float-fix;
     margin-top: 64px;
 
     .brute-force-demo-title {

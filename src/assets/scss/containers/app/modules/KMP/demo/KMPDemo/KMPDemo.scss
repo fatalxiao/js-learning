@@ -1,6 +1,7 @@
 @import '../../../../../../common.scss';
 
 .kmp-demo {
+    @include float-fix;
     margin-top: 64px;
 
     .kmp-demo-title {
