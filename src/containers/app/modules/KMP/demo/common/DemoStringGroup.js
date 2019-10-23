@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import DemoString from './DemoString';
 
-import 'scss/containers/app/modules/KMP/demo/common/DemoStringGroup.scss';
-
 class DemoStringGroup extends Component {
 
     constructor(props) {
