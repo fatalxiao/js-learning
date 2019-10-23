@@ -1,7 +1,7 @@
 /**
  * Knuth Morris Pratt (KMP) 算法
  */
-class KMP {
+class KMPAdvanced {
 
     constructor(pat) {
 
@@ -80,10 +80,10 @@ class KMP {
     }
 }
 
-const kmp = new KMP('aaab');
+const kmp = new KMPAdvanced('aaab');
 console.log(kmp.search('aaacaaab')); // 4
 console.log(kmp.search('aaaaaaab')); // 4
 
-const kmpCn = new KMP('你分开是对你可是你');
+const kmpCn = new KMPAdvanced('你分开是对你可是你');
 console.log(kmpCn.search('数九寒冬你分开是对你可是你都可能是看到你')); // 4
 console.log(kmpCn.search('都开始你分开是对你可是你贾夫纳市离开的菲尼克斯的')); // 3
