@@ -4,7 +4,9 @@ import KMPDemo from './KMPDemo/KMPDemo';
 import BruteForceDemo from './bruteForceDemo/BruteForceDemo';
 import Section from 'components/Section';
 
-class Demo extends Component {
+import 'scss/containers/app/modules/KMP/demo/Demos.scss';
+
+class Demos extends Component {
 
     constructor(props) {
         super(props);
@@ -12,23 +14,26 @@ class Demo extends Component {
 
     render() {
         return (
-            <Section title="KMP算法 VS 暴力算法">
-
-                <KMPDemo txt="aaaaaaab"
-                         pat="aaab"/>
+            <Section className="kmp-demos"
+                     title="暴力算法 VS KMP算法">
 
                 <BruteForceDemo txt="aaaaaaab"
                                 pat="aaab"/>
 
-                <KMPDemo txt="aaacaaab"
+                <KMPDemo txt="aaaaaaab"
                          pat="aaab"/>
+
+                <div className="kmp-demos-hr"/>
 
                 <BruteForceDemo txt="aaacaaab"
                                 pat="aaab"/>
+
+                <KMPDemo txt="aaacaaab"
+                         pat="aaab"/>
 
             </Section>
         );
     }
 }
 
-export default Demo;
+export default Demos;
