@@ -70,7 +70,7 @@ class Section extends Component {
             isTitleFixed = rect.top <= 0;
         this.setState({
             isTitleFixed,
-            isTitleFixedBottom: rect.height + rect.top <= 96,
+            isTitleFixedBottom: rect.height + rect.top <= 95,
             width: isTitleFixed ? rect.width - 2 : null
         });
 
@@ -93,7 +93,7 @@ class Section extends Component {
 
     render() {
 
-        const {children, title} = this.props,
+        const {children, className, style, title} = this.props,
             {collapsed, isTitleFixed, isTitleFixedBottom, width} = this.state;
 
         return (
@@ -101,8 +101,10 @@ class Section extends Component {
                      className={classNames('section', {
                          expand: !collapsed,
                          'title-fixed': isTitleFixed,
-                         'title-fixed-bottom': isTitleFixedBottom
-                     })}>
+                         'title-fixed-bottom': isTitleFixedBottom,
+                         [className]: className
+                     })}
+                     style={style}>
 
                 <h1 className="section-title"
                     style={{width}}
@@ -126,6 +128,8 @@ class Section extends Component {
 Section.propTypes = {
 
     children: PropTypes.any,
+    className: PropTypes.string,
+    style: PropTypes.object,
     title: PropTypes.any,
 
     collapsed: PropTypes.bool
