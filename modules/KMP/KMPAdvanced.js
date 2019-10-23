@@ -1,5 +1,5 @@
 /**
- * Knuth Morris Pratt (KMP) 算法
+ * 改进的 Knuth Morris Pratt (KMP) 算法
  */
 class KMPAdvanced {
 

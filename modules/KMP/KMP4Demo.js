@@ -1,5 +1,5 @@
 /**
- * Knuth Morris Pratt (KMP) 算法
+ * 添加了 yield 用于演示的 Knuth Morris Pratt (KMP) 算法
  */
 class KMP4Demo {
 
