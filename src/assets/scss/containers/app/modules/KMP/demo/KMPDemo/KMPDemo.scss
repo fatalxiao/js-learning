@@ -1,7 +1,12 @@
-@import '../../../../../../common';
+@import '../../../../../../common.scss';
 
 .kmp-demo {
-    margin-top: 32px;
+    margin-top: 64px;
+
+    .kmp-demo-title {
+        font-size: 24px;
+        font-weight: 700;
+    }
 
     .raised-button {
         margin-right: 16px;

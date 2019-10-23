@@ -44,6 +44,10 @@ class KMPDemo extends Component {
         return (
             <div className="kmp-demo">
 
+                <div className="kmp-demo-title">
+                    KMP 算法
+                </div>
+
                 <DemoStringGroup txt={txt}
                                  pat={pat}
                                  currentState={currentState && currentState.value}/>
