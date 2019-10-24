@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import RaisedButton from 'alcedo-ui/RaisedButton';
 import DemoStringGroup from '../common/DemoStringGroup';
 
-import {search} from 'modules/KMP/BruteForce4Demo';
+import {search} from 'modules/KMP/BruteForceSearch4Demo';
 
 import 'scss/containers/app/modules/KMP/demo/bruteForceDemo/BruteForceDemo.scss';
 

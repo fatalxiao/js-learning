@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import Section from 'components/Section';
 import Code from 'components/Code/Code';
 
-import KMPCode from '!!raw-loader!modules/KMP/KMP';
-import KMPAdvanceCode from '!!raw-loader!modules/KMP/KMPAdvanced';
+import KMPCode from '!!raw-loader!modules/KMP/DPKMP';
+import KMPAdvanceCode from '!!raw-loader!modules/KMP/DPKMPAdvanced';
 
 class SourceCode extends Component {
 

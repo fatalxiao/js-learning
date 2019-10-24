@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import RaisedButton from 'alcedo-ui/RaisedButton';
 import DemoStringGroup from '../common/DemoStringGroup';
 
-import KMP4Demo from 'modules/KMP/KMP4Demo';
+import DPKMP4Demo from 'modules/KMP/DPKMP4Demo';
 
 import 'scss/containers/app/modules/KMP/demo/KMPDemo/KMPDemo.scss';
 
@@ -14,7 +14,7 @@ class KMPDemo extends Component {
 
         super(props);
 
-        this.kmp = new KMP4Demo(props.pat);
+        this.kmp = new DPKMP4Demo(props.pat);
         this.step = this.kmp.search(props.txt);
 
         this.state = {
