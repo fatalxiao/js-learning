@@ -1,7 +1,7 @@
 /**
- * Knuth Morris Pratt (KMP) 算法
+ * 添加了 yield 用于演示的 Knuth Morris Pratt (KMP) 算法
  */
-class KMP {
+class DPKMP4Demo {
 
     constructor(pat) {
 
@@ -41,7 +41,7 @@ class KMP {
 
     }
 
-    search(txt) {
+    * search(txt) {
 
         const patLength = this.pat.length,
             txtLength = txt.length;
@@ -53,6 +53,8 @@ class KMP {
             // 当前是状态 j，遇到字符 txt[i]，
             // pat 应该转移到哪个状态？
             j = this.dp[j][txt.charCodeAt(i)];
+
+            yield [i, j - 1];
 
             // 如果达到终止态，返回匹配开头的索引
             if (j == patLength) {
@@ -67,6 +69,4 @@ class KMP {
     }
 }
 
-const kmp = new KMP('aaab');
-console.log(kmp.search('aaacaaab')); // 4
-console.log(kmp.search('aaaaaaab')); // 4
+export default DPKMP4Demo;
