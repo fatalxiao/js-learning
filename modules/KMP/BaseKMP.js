@@ -6,7 +6,6 @@ class BaseKMP {
     constructor(pat) {
         this.pat = pat;
         this.next = this.calcNext(pat);
-        console.log('next::', this.next);
     }
 
     calcNext(pat) {
