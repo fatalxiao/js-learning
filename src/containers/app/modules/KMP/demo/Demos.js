@@ -31,6 +31,14 @@ class Demos extends Component {
                 <BaseKMPDemo txt="aaacaaab"
                              pat="aaab"/>
 
+                <div className="kmp-demos-hr"/>
+
+                <BruteForceDemo txt="abcdefg"
+                                pat="def"/>
+
+                <BaseKMPDemo txt="abcdefg"
+                             pat="def"/>
+
             </Section>
         );
     }
