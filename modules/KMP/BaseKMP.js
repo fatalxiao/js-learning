@@ -22,7 +22,7 @@ class BaseKMP {
                 for (let strLen = str.length, k = strLen - 1; k > 0; k--) {
                     const prefix = str.slice(0, k),
                         suffix = str.slice(strLen - k);
-                    if (prefix == suffix) {
+                    if (prefix === suffix) {
                         next[i] = prefix.length;
                         break;
                     }
@@ -40,35 +40,27 @@ class BaseKMP {
 
     search(txt) {
 
-        let j = 0,
-            result;
-
-        for (let i = 0, txtLen = txt.length, patLen = this.pat.length; i < txtLen; i++) {
-
-            // 如果与主串匹配
-            if (this.pat.charAt(j) === txt.charAt(i)) {
-
-                // 如果是匹配完成
-                if (j === patLen - 1) {
-                    result = i - j;
-                    break;
+        const txtLen = txt.length,
+            patLen = this.pat.length;
+        let i = 0,
+            j = 0;
+        while (i < txtLen) {
+            if (txt.charAt(i) === this.pat.charAt(j)) {
+                i++;
+                j++;
+                if (j === patLen) {
+                    return i - j;
                 }
-
-                // 否则继续循环
-                else {
-                    j++;
-                }
-
             } else {
-                j = this.next[j] + 1;
+                if (j === 0) {
+                    i++;
+                } else {
+                    j = this.next[j - 1] + 1;
+                }
             }
         }
 
-        if (result || result === 0) {
-            return result;
-        } else {
-            return -1;
-        }
+        return -1;
 
     }
 
@@ -76,3 +68,6 @@ class BaseKMP {
 
 const kmp = new BaseKMP('ABCDABD');
 console.log(kmp.search('BBC ABCDAB ABCDABCDABDE'));
+
+const km2 = new BaseKMP('aaab');
+console.log(km2.search('aaaaaaab'));
