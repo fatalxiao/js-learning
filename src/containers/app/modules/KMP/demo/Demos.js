@@ -17,19 +17,19 @@ class Demos extends Component {
             <Section className="kmp-demos"
                      title="暴力算法 VS KMP算法">
 
-                {/*<BruteForceDemo txt="aaaaaaab"*/}
-                {/*                pat="aaab"/>*/}
+                <BruteForceDemo txt="aaaaaaab"
+                                pat="aaab"/>
 
                 <BaseKMPDemo txt="aaaaaaab"
                              pat="aaab"/>
 
-                {/*<div className="kmp-demos-hr"/>*/}
+                <div className="kmp-demos-hr"/>
 
-                {/*<BruteForceDemo txt="aaacaaab"*/}
-                {/*                pat="aaab"/>*/}
+                <BruteForceDemo txt="aaacaaab"
+                                pat="aaab"/>
 
-                {/*<BaseKMPDemo txt="aaacaaab"*/}
-                {/*             pat="aaab"/>*/}
+                <BaseKMPDemo txt="aaacaaab"
+                             pat="aaab"/>
 
             </Section>
         );

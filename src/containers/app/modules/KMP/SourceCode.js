@@ -3,8 +3,9 @@ import React, {Component} from 'react';
 import Section from 'components/Section';
 import Code from 'components/Code/Code';
 
-import KMPCode from '!!raw-loader!modules/KMP/DPKMP';
-import KMPAdvanceCode from '!!raw-loader!modules/KMP/DPKMPAdvanced';
+import BaseKMPCode from '!!raw-loader!modules/KMP/BaseKMP';
+import DPKMPCode from '!!raw-loader!modules/KMP/DPKMP';
+import DPKMPAdvanceCode from '!!raw-loader!modules/KMP/DPKMPAdvanced';
 
 class SourceCode extends Component {
 
@@ -15,10 +16,12 @@ class SourceCode extends Component {
     render() {
         return (
             <Section title="KMP 实现源码">
-                <Code title="原版 KMP 算法"
-                      value={KMPCode}/>
-                <Code title="改进的 KMP 算法"
-                      value={KMPAdvanceCode}/>
+                <Code title="KMP 算法"
+                      value={BaseKMPCode}/>
+                <Code title="动态规划 KMP 算法"
+                      value={DPKMPCode}/>
+                <Code title="改进的动态规划 KMP 算法"
+                      value={DPKMPAdvanceCode}/>
             </Section>
         );
     }
