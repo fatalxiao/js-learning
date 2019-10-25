@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 import RaisedButton from 'alcedo-ui/RaisedButton';
 import DemoStringGroup from '../common/DemoStringGroup';
 
-import DPKMP4Demo from 'modules/KMP/DPKMP4Demo';
+import BaseKMP4Demo from 'modules/KMP/BaseKMP4Demo';
 
-import 'scss/containers/app/modules/KMP/demo/KMPDemo/KMPDemo.scss';
+import 'scss/containers/app/modules/KMP/demo/baseKMPDemo/BaseKMPDemo.scss';
 
-class KMPDemo extends Component {
+class BaseKMPDemo extends Component {
 
     constructor(props) {
 
         super(props);
 
-        this.kmp = new DPKMP4Demo(props.pat);
+        this.kmp = new BaseKMP4Demo(props.pat);
         this.step = this.kmp.search(props.txt);
 
         this.state = {
@@ -41,10 +41,12 @@ class KMPDemo extends Component {
         const {txt, pat} = this.props,
             {currentState} = this.state;
 
-        return (
-            <div className="kmp-demo">
+        currentState && console.log(currentState.value);
 
-                <h2 className="kmp-demo-title">
+        return (
+            <div className="base-kmp-demo">
+
+                <h2 className="base-kmp-demo-title">
                     KMP 算法
                 </h2>
 
@@ -67,9 +69,9 @@ class KMPDemo extends Component {
     }
 }
 
-KMPDemo.propTypes = {
+BaseKMPDemo.propTypes = {
     txt: PropTypes.string,
     pat: PropTypes.string
 };
 
-export default KMPDemo;
+export default BaseKMPDemo;

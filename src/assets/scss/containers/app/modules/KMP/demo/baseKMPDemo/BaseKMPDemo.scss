@@ -1,10 +1,10 @@
 @import '../../../../../../common.scss';
 
-.kmp-demo {
+.base-kmp-demo {
     @include float-fix;
     margin-top: 64px;
 
-    .kmp-demo-title {
+    .base-kmp-demo-title {
         font-size: 24px;
         font-weight: 700;
     }
