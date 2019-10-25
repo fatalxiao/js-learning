@@ -1,7 +1,7 @@
 /**
  * Knuth Morris Pratt (KMP) 算法
  */
-class BaseKMP {
+export default class BaseKMP4Demo {
 
     constructor(pat) {
         this.pat = pat;
@@ -39,7 +39,7 @@ class BaseKMP {
 
     }
 
-    search(txt) {
+    * search(txt) {
 
         let j = 0,
             result;
@@ -52,16 +52,19 @@ class BaseKMP {
                 // 如果是匹配完成
                 if (j === patLen - 1) {
                     result = i - j;
+                    yield [i, j];
                     break;
                 }
 
                 // 否则继续循环
                 else {
                     j++;
+                    yield [i, j - 1];
                 }
 
             } else {
                 j = this.next[j] + 1;
+                yield [i, j - 1];
             }
         }
 
@@ -74,6 +77,3 @@ class BaseKMP {
     }
 
 }
-
-const kmp = new BaseKMP('ABCDABD');
-console.log(kmp.search('BBC ABCDAB ABCDABCDABDE'));
