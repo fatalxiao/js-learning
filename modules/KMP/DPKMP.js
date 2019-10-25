@@ -6,12 +6,12 @@ class DPKMP {
     constructor(pat) {
 
         this.pat = pat;
-        const patLength = pat.length;
+        const patLen = pat.length;
 
         // 初始化 dp
         // dp[状态][字符] = 下个状态
-        this.dp = new Array(patLength);
-        for (let j = 0; j < patLength; j++) {
+        this.dp = new Array(patLen);
+        for (let j = 0; j < patLen; j++) {
             this.dp[j] = new Array(256).fill(0);
         }
 
@@ -22,7 +22,7 @@ class DPKMP {
         let prev = 0;
 
         // 当前状态 j 从 1 开始
-        for (let j = 1; j < patLength; j++) {
+        for (let j = 1; j < patLen; j++) {
 
             const char = this.pat.charCodeAt(j);
 
@@ -43,20 +43,17 @@ class DPKMP {
 
     search(txt) {
 
-        const patLength = this.pat.length,
-            txtLength = txt.length;
-
         // pat 的初始态为 0
         let j = 0;
-        for (let i = 0; i < txtLength; i++) {
+        for (let i = 0, txtLen = txt.length, patLen = this.pat.length; i < txtLen; i++) {
 
             // 当前是状态 j，遇到字符 txt[i]，
             // pat 应该转移到哪个状态？
             j = this.dp[j][txt.charCodeAt(i)];
 
             // 如果达到终止态，返回匹配开头的索引
-            if (j == patLength) {
-                return i - patLength + 1;
+            if (j == patLen) {
+                return i - patLen + 1;
             }
 
         }
