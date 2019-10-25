@@ -1,19 +1,22 @@
+/**
+ * 暴力查询算法
+ * @param txt
+ * @param pat
+ * @returns {number}
+ */
 export function search(txt, pat) {
 
-    const txtLength = txt.length,
-        patLength = pat.length;
-
-    for (let i = 0; i < txtLength - patLength; i++) {
+    for (let i = 0, txtLen = txt.length, patLen = pat.length; i < txtLen - patLen; i++) {
 
         let j;
 
-        for (j = 0; j < patLength; j++) {
+        for (j = 0; j < patLen; j++) {
             if (pat[j] != txt[i + j])
                 break;
         }
 
         // pat 全都匹配了
-        if (j == patLength) return i;
+        if (j == patLen) return i;
 
     }
 
