@@ -1,7 +1,6 @@
 import ac from 'components/AsyncComponent';
 
-export function configureRoutes(store) {
-
+export default function configureRoutes(store) {
     return [{
         path: '/',
         component: ac(() => import('containers/Root'), store),
@@ -20,7 +19,6 @@ export function configureRoutes(store) {
             }]
         }]
     }];
-
 }
 
 export const DEFAULT_ROUTE = '/js-learning';

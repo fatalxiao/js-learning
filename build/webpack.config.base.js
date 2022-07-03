@@ -63,6 +63,8 @@ module.exports = {
             'middlewares': resolveRootPath('src/middlewares'),
             'models': resolveRootPath('src/models'),
 
+            'apis': resolveRootPath('src/apis'),
+            'reduxes': resolveRootPath('src/reduxes'),
             'statics': resolveRootPath('src/statics'),
             'vendors': resolveRootPath('src/vendors'),
 

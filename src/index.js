@@ -1,38 +1,48 @@
+/**
+ * @file index.js
+ */
+
 'use strict';
 
-import '@babel/polyfill';
 import React from 'react';
-import {render} from 'react-dom';
+
+// Vendors
+import {createRoot} from 'react-dom/client';
 import {createBrowserHistory} from 'history';
 import {renderRoutes} from 'react-router-config';
 import {Provider} from 'react-redux';
-import {ConnectedRouter} from 'connected-react-router';
+import {ConnectedRouter} from 'vivy-router';
 
-import configureStore from 'reduxes/store';
-import {configureRoutes} from './config.routes';
+// Configs
+import configureStore from './config.store';
+import configureRoutes from './config.routes';
 
+// Styles
 import 'scss/index.scss';
 
-const history = createBrowserHistory(),
-    store = configureStore(history);
+/**
+ * 创建 history
+ * @type {*}
+ */
+const history = createBrowserHistory();
 
-function renderAppContainer() {
-    render(
-        <Provider store={store}>
-            <ConnectedRouter history={history}>
-                {renderRoutes(configureRoutes(store))}
-            </ConnectedRouter>
-        </Provider>,
-        document.getElementById('app-container')
-    );
-}
+/**
+ * 创建 store
+ */
+const store = configureStore(history);
 
-renderAppContainer();
+/**
+ * 渲染应用到dom
+ */
+createRoot(document.getElementById('app-container')).render(
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            {renderRoutes(configureRoutes(store))}
+        </ConnectedRouter>
+    </Provider>
+);
 
-if (process.env.NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('src/config.routes.js', renderAppContainer);
-    module.hot.accept('reduxes/store', renderAppContainer);
-    module.hot.accept('reduxes/reducers', () => {
-        store.replaceReducer(require('reduxes/reducers').default);
-    });
-}
+/**
+ * 开发环境时，添加热替换监听
+ */
+module?.hot?.accept?.();

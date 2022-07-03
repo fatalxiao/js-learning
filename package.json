@@ -51,7 +51,13 @@
         "react-transition-group": "4.4.2",
         "redux": "4.2.0",
         "redux-thunk": "2.4.1",
-        "screenfull": "^6.0.2"
+        "screenfull": "^6.0.2",
+        "vivy": "^2.1.0",
+        "vivy-api": "^2.0.3",
+        "vivy-async-component": "^2.0.6",
+        "vivy-i18n": "^2.3.1",
+        "vivy-router": "^2.0.1",
+        "vivy-subscription": "^2.0.1"
     },
     "devDependencies": {
         "@babel/core": "7.18.6",
