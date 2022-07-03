@@ -1,98 +1,116 @@
-const path = require('path'),
+/**
+ * @file webpack.config.base.js
+ */
 
-    HappyPack = require('happypack'),
-    autoprefixer = require('autoprefixer'),
+const os = require('os');
 
-    config = require('./config.js'),
-    utils = require('./utils.js'),
+// Statics
+const config = require('./config.js');
 
-    cssLoaderConfig = ['style-loader', {
-        loader: 'css-loader',
-        options: {
-            importLoaders: 1
-        }
-    }, {
-        loader: 'postcss-loader',
-        options: {
-            ident: 'postcss',
+// Vendors
+const HappyPack = require('happypack');
+const {resolveRootPath} = require('./utils.js');
+
+const cssLoaderConfig = ['style-loader', {
+    loader: 'css-loader',
+    options: {
+        importLoaders: 1
+    }
+}, {
+    loader: 'postcss-loader',
+    options: {
+        postcssOptions: {
             plugins: [
-                autoprefixer({
-                    broswer: 'last 5 versions'
-                })
+                'postcss-preset-env'
             ]
         }
-    }];
-
-function resolve(dir) {
-    return path.join(__dirname, '..', dir);
-}
+    }
+}];
 
 module.exports = {
+
     entry: {
         app: './src/index.js'
     },
+
     output: {
-        path: config.build.assetsRoot,
+        path: config.assetsRoot,
         filename: '[name].js',
         publicPath: config.assetsPublicPath
     },
+
     resolve: {
-        extensions: ['.js', '.json'],
+        extensions: ['.js', '.scss'],
+        fallback: {
+            'crypto': false
+        },
         alias: {
 
-            'src': resolve('src'),
-            'assets': resolve('src/assets'),
-            'scss': resolve('src/assets/scss'),
-            'images': resolve('src/assets/images'),
-            'containers': resolve('src/containers'),
-            'components': resolve('src/components'),
-            'reduxes': resolve('src/reduxes'),
-            'apis': resolve('src/apis'),
-            'statics': resolve('src/statics'),
-            'vendors': resolve('src/vendors'),
+            // src
+            'src': resolveRootPath('src'),
 
-            'modules': resolve('modules')
+            // assets
+            'assets': resolveRootPath('src/assets'),
+            'icons': resolveRootPath('src/assets/icons'),
+            'illustrations': resolveRootPath('src/assets/illustrations'),
+            'images': resolveRootPath('src/assets/images'),
+            'scss': resolveRootPath('src/assets/scss'),
+
+            'components': resolveRootPath('src/components'),
+            'customized': resolveRootPath('src/customized'),
+
+            'modules': resolveRootPath('src/modules'),
+            'middlewares': resolveRootPath('src/middlewares'),
+            'models': resolveRootPath('src/models'),
+
+            'statics': resolveRootPath('src/statics'),
+            'vendors': resolveRootPath('src/vendors'),
+
+            'test': resolveRootPath('test')
 
         }
     },
+
     module: {
         rules: [{
             test: /\.js$/,
             use: 'happypack/loader?id=js',
-            include: [resolve('src'), resolve('modules')]
+            include: resolveRootPath('src')
         }, {
-            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            loader: 'url-loader',
-            options: {
-                limit: 1000,
-                name: utils.assetsSubPath('img/[name].[hash:7].[ext]')
+            test: /\.(png|jpe?g|gif|svg|cur|ico)(\?.*)?$/,
+            type: 'asset/resource',
+            generator: {
+                filename: 'img/[name]-[contenthash:8][ext]'
             }
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url-loader',
-            options: {
-                limit: 1000,
-                name: utils.assetsSubPath('fonts/[name].[hash:7].[ext]')
+            type: 'asset/resource',
+            generator: {
+                filename: 'font/[name]-[contenthash:8][ext]'
             }
         }, {
             test: /\.scss$/,
-            use: [...cssLoaderConfig, 'fast-sass-loader']
+            use: [...cssLoaderConfig, {
+                loader: 'sass-loader',
+                options: {
+                    sassOptions: {
+                        includePaths: [resolveRootPath('src/assets')]
+                    }
+                }
+            }]
         }, {
             test: /\.css$/,
             use: cssLoaderConfig
-        }, {
-            test: /\.ht?ml/,
-            loader: 'html-loader'
         }]
     },
+
     plugins: [
         new HappyPack({
             id: 'js',
-            loaders: [{
-                loader: 'babel-loader?cacheDirectory=true'
-            }],
-            threads: 4,
+            threadPool: HappyPack.ThreadPool({size: os.cpus().length}),
+            loaders: ['babel-loader?cacheDirectory=true'],
             verbose: false
         })
     ]
+
 };
