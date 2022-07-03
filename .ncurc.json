@@ -1,0 +1,10 @@
+{
+    "upgrade": true,
+    "timeout": 50000,
+    "reject": [
+        "copy-webpack-plugin",
+        "history",
+        "react-router",
+        "react-router-dom"
+    ]
+}

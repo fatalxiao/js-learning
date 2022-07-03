@@ -9,7 +9,7 @@ import * as actions from 'reduxes/actions';
 import IconButton from 'alcedo-ui/IconButton';
 // import NavSearch from './NavSearch';
 
-import {DEFAULT_ROUTE} from 'src/config.routes';
+import {DEFAULT_ROUTE} from 'config.route';
 
 import 'scss/containers/app/nav/bar/NavBarTop.scss';
 

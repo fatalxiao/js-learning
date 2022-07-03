@@ -15,7 +15,7 @@ import {ConnectedRouter} from 'vivy-router';
 
 // Configs
 import configureStore from './config.store';
-import configureRoutes from './config.routes';
+import configureRoute from './config.route';
 
 // Styles
 import 'scss/index.scss';
@@ -37,7 +37,7 @@ const store = configureStore(history);
 createRoot(document.getElementById('app-container')).render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            {renderRoutes(configureRoutes(store))}
+            {renderRoutes(configureRoute(store))}
         </ConnectedRouter>
     </Provider>
 );
