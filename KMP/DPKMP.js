@@ -52,7 +52,7 @@ class DPKMP {
             j = this.dp[j][txt.charCodeAt(i)];
 
             // 如果达到终止态，返回匹配开头的索引
-            if (j == patLen) {
+            if (j === patLen) {
                 return i - patLen + 1;
             }
 

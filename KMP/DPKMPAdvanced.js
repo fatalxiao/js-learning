@@ -68,7 +68,7 @@ class DPKMPAdvanced {
             j = this.dp[j][txt.charAt(i)];
 
             // 如果达到终止态，返回匹配开头的索引
-            if (j == patLength) {
+            if (j === patLength) {
                 return i - patLength + 1;
             }
 

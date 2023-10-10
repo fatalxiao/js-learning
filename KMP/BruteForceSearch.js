@@ -4,19 +4,19 @@
  * @param pat
  * @returns {number}
  */
-export function search(txt, pat) {
+function search(txt, pat) {
 
     for (let i = 0, txtLen = txt.length, patLen = pat.length; i < txtLen - patLen; i++) {
 
         let j;
 
         for (j = 0; j < patLen; j++) {
-            if (pat[j] != txt[i + j])
+            if (pat[j] !== txt[i + j])
                 break;
         }
 
         // pat 全都匹配了
-        if (j == patLen) return i;
+        if (j === patLen) return i;
 
     }
 

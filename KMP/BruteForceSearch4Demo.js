@@ -4,7 +4,7 @@
  * @param pat
  * @returns {IterableIterator<*[]|number>}
  */
-export function* search(txt, pat) {
+function* search(txt, pat) {
 
     for (let i = 0, txtLen = txt.length, patLen = pat.length; i <= txtLen - patLen; i++) {
 
@@ -18,7 +18,7 @@ export function* search(txt, pat) {
         }
 
         // pat 全都匹配了
-        if (j == patLen) {
+        if (j === patLen) {
             return i;
         }
 

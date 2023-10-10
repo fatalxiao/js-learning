@@ -16,7 +16,7 @@ class BaseKMP {
 
             const str = pat.substring(0, i);
 
-            if (str.length == 1) {
+            if (str.length === 1) {
                 next[i] = 0;
             } else {
                 for (let strLen = str.length, k = strLen - 1; k > 0; k--) {

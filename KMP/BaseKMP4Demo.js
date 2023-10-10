@@ -1,7 +1,7 @@
 /**
  * Knuth Morris Pratt (KMP) 算法
  */
-export default class BaseKMP4Demo {
+class BaseKMP4Demo {
 
     constructor(pat) {
         this.pat = pat;
@@ -16,7 +16,7 @@ export default class BaseKMP4Demo {
 
             const str = pat.substring(0, i);
 
-            if (str.length == 1) {
+            if (str.length === 1) {
                 next[i] = 0;
             } else {
                 for (let strLen = str.length, k = strLen - 1; k > 0; k--) {
