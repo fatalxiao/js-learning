@@ -1,7 +1,9 @@
+// eslint-disable-next-line require-jsdoc
 function progressCurrying(fn, ...args) {
 
-    const self = this,
-        len = fn.length;
+    // eslint-disable-next-line consistent-this
+    const self = this;
+    const len = fn.length;
 
     return function (...otherArgs) {
 

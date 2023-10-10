@@ -12,7 +12,6 @@ const on = (element, event, handler) => {
 on(document, 'scroll', e => console.log(e));
 
 
-
 /**
  * Currying
  */

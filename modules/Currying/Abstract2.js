@@ -7,7 +7,6 @@ check(/\d+/g, 'test'); // false
 check(/[a-z]+/g, 'test'); // true
 
 
-
 /**
  * Currying
  */
